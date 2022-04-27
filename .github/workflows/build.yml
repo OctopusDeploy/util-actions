@@ -1,0 +1,50 @@
+# This workflow does a build and test of all packages
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "README.md"
+
+  pull_request:
+    paths-ignore:
+      - "README.md"
+
+  schedule:
+    - cron: "0 20 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and test
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.32.10
+
+      - name: setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.*"
+          cache: "pnpm"
+
+      # Why do we explicitly do pnpm install here and not use "run_install: true" above in the pnpm setup?
+      # We need to have pnpm setup before node in order to take advantage of the inbuilt caching that is available
+      # in that action, and running an install as part of pnpm setup won't use the cache, so we'll explicitly
+      # run it here after the cache
+      - run: pnpm install
+
+      - name: ESLint
+        run: pnpm run lint
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Test
+        run: pnpm run test
