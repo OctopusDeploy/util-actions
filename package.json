@@ -1,0 +1,30 @@
+{
+    "name": "@octopusdeploy/util-actions",
+    "version": "0.0.1",
+    "description": "A set of utility actions for use in GitHub actions workflows",
+    "main": "index.js",
+    "scripts": {
+        "build": "pnpm run build --filter={packages}",
+        "changeset": "changeset",
+        "preinstall": "npx only-allow pnpm",
+        "test": "pnpm run test --filter={packages}"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/OctopusDeploy/util-actions.git"
+    },
+    "keywords": [
+        "github",
+        "actions",
+        "utility"
+    ],
+    "author": "Octopus Deploy",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/OctopusDeploy/util-actions/issues"
+    },
+    "homepage": "https://github.com/OctopusDeploy/util-actions#readme",
+    "devDependencies": {
+        "@changesets/cli": "^2.22.0"
+    }
+}
