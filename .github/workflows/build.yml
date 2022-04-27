@@ -40,7 +40,7 @@ jobs:
       # run it here after the cache
       - run: pnpm install
 
-      - name: ESLint
+      - name: Lint
         run: pnpm lint
 
       - name: Build
