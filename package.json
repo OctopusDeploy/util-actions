@@ -7,7 +7,7 @@
     "build": "pnpm run build --filter={packages}",
     "changeset": "changeset",
     "lint:fix": "eslint . --fix",
-    "lint": "eslint .",
+    "lint": "eslint . --no-error-on-unmatched-pattern",
     "preinstall": "npx only-allow pnpm",
     "test": "pnpm run test --filter={packages}"
   },
