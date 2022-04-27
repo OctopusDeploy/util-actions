@@ -6,6 +6,8 @@
   "scripts": {
     "build": "pnpm run build --filter={packages}",
     "changeset": "changeset",
+    "lint:fix": "eslint . --fix",
+    "lint": "eslint .",
     "preinstall": "npx only-allow pnpm",
     "test": "pnpm run test --filter={packages}"
   },
@@ -25,6 +27,16 @@
   },
   "homepage": "https://github.com/OctopusDeploy/util-actions#readme",
   "devDependencies": {
-    "@changesets/cli": "^2.22.0"
+    "@changesets/cli": "^2.22.0",
+    "@typescript-eslint/eslint-plugin": "5.21.0",
+    "@typescript-eslint/parser": "5.21.0",
+    "eslint": "8.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jest": "26.1.5",
+    "eslint-plugin-prefer-arrow": "1.2.3",
+    "eslint-plugin-prettier": "4.0.0",
+    "prettier": "2.6.2",
+    "typescript": "4.6.3"
   }
 }
