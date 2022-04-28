@@ -1,7 +1,8 @@
 import { Changeset, Release, VersionType } from "@changesets/types";
 import { getInput, setOutput, setFailed, getMultilineInput } from "@actions/core";
 import glob, { IOptions } from "glob";
-import fs from "fs";
+import { existsSync } from "fs";
+import { readFile } from "fs/promises";
 import write from "@changesets/write";
 
 type AddChangesetParameters = {
@@ -29,11 +30,13 @@ type PackageJson = {
 };
 
 const loadProjectPackageJson = async (packageJsonPath: string): Promise<PackageJson> => {
-    if (!fs.existsSync(packageJsonPath)) {
+    if (!existsSync(packageJsonPath)) {
         throw new Error(`Could not locate package.json in ${packageJsonPath}`);
     }
 
-    return await import(packageJsonPath);
+    const contents = await readFile(packageJsonPath);
+
+    return JSON.parse(contents.toString());
 };
 
 async function addChangeset({ filter, ignore, type, summary, cwd }: AddChangesetParameters): Promise<string> {
