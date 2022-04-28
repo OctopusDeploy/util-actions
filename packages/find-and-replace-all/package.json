@@ -8,7 +8,7 @@
     "publish": "cp dist/index.js ../../find-and-replace-all/index.js",
     "test": "jest"
   },
-  "author": "Geoff Lamrock",
+  "author": "Octopus Deploy",
   "license": "Apache-2.0",
   "dependencies": {
     "@actions/core": "^1.7.0"
