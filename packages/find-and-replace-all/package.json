@@ -1,0 +1,27 @@
+{
+  "name": "find-and-replace-all",
+  "version": "0.0.1",
+  "description": "Find and replace all instances of a string",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --outdir=dist --sourcemap",
+    "publish": "cp dist/index.js ../../find-and-replace-all/index.js",
+    "test": "jest"
+  },
+  "author": "Octopus Deploy",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@actions/core": "^1.7.0"
+  },
+  "devDependencies": {
+    "@types/jest": "27.4.1",
+    "@types/node": "16.11.7",
+    "esbuild": "0.14.38",
+    "typescript": "4.6.3",
+    "jest": "27.5.1",
+    "jest-expect-message": "1.0.2",
+    "jest-extended": "2.0.0",
+    "jest-runner-eslint": "1.0.0",
+    "ts-jest": "27.1.4"
+  }
+}

@@ -1,0 +1,25 @@
+name: Find and replace all
+description: Find and replace all instances of a string
+author: Octopus Deploy
+runs:
+  using: node16
+  main: index.js
+inputs:
+  source:
+    description: "The text to perform the replace on"
+    required: true
+  searchString:
+    description: "The string to search for"
+    required: false
+  searchRegex:
+    description: "A regular expression to search with"
+    required: false
+  searchRegexFlags:
+    description: "Flags to add to the regular expression. The global flag will always be added."
+    required: false
+  replace:
+    description: "The text to replace with"
+    required: true
+outputs:
+  value:
+    description: "The new value after find-and-replace-all has been run"
