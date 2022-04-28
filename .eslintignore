@@ -3,3 +3,4 @@ node_modules/*
 **/dist/**/*
 **/coverage/*
 renovate-config.js
+find-and-replace-all/index.js
