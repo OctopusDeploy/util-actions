@@ -66,7 +66,13 @@ async function addChangeset({ filter, ignore, type, summary, cwd }: AddChangeset
         releases,
     };
 
-    return write(changeset, cwd || ".");
+    console.log(`Writing changeset '${JSON.stringify(changeset)}'`);
+
+    const writtenChangeset = await write(changeset, cwd || ".");
+
+    console.log(`Changeset '${writtenChangeset}' created`);
+
+    return writtenChangeset;
 }
 
 try {
