@@ -3,7 +3,7 @@ description: Find and replace all instances of a string
 author: Octopus Deploy
 runs:
   using: node16
-  main: find-and-replace-all/index.js
+  main: index.js
 inputs:
   source:
     description: "The text to perform the replace on"
