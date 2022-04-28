@@ -4,6 +4,7 @@ import glob, { IOptions } from "glob";
 import { existsSync } from "fs";
 import { readFile } from "fs/promises";
 import write from "@changesets/write";
+import path from "path";
 
 type AddChangesetParameters = {
     filter?: RegExp;
@@ -39,7 +40,12 @@ const loadProjectPackageJson = async (packageJsonPath: string): Promise<PackageJ
     return JSON.parse(contents.toString());
 };
 
-async function addChangeset({ filter, ignore, type, summary, cwd }: AddChangesetParameters): Promise<string> {
+type CreatedChangeset = {
+    name: string;
+    path: string;
+};
+
+async function addChangeset({ filter, ignore, type, summary, cwd }: AddChangesetParameters): Promise<CreatedChangeset> {
     const packageJsonFilePaths = await globAsync("**/package.json", { absolute: true, ignore: ignore });
 
     const releases: Release[] = [];
@@ -68,11 +74,16 @@ async function addChangeset({ filter, ignore, type, summary, cwd }: AddChangeset
 
     console.log(`Writing changeset '${JSON.stringify(changeset)}'`);
 
-    const writtenChangeset = await write(changeset, cwd || ".");
+    const workingDirectory = cwd || ".";
+    const changesetDirectory = path.join(workingDirectory, ".changeset");
 
-    console.log(`Changeset '${writtenChangeset}' created`);
+    const changesetName = await write(changeset, cwd || ".");
 
-    return writtenChangeset;
+    const changesetPath = path.join(changesetDirectory, changesetName);
+
+    console.log(`Changeset '${changesetName}' created at '${changesetPath}'`);
+
+    return { name: changesetName, path: changesetPath };
 }
 
 async function addChangesetAction() {
@@ -86,7 +97,7 @@ async function addChangesetAction() {
         const summary = getInput("summary");
         const cwd = getInput("cwd");
 
-        const changesetName = await addChangeset({
+        const { name, path } = await addChangeset({
             filter: filter === "" ? undefined : new RegExp(filter),
             summary,
             ignore,
@@ -94,7 +105,8 @@ async function addChangesetAction() {
             cwd,
         });
 
-        setOutput("changeset", changesetName);
+        setOutput("changesetName", name);
+        setOutput("changesetPath", path);
     } catch (error) {
         setFailed(error.message);
     }
