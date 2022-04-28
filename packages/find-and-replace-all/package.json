@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --outdir=dist --sourcemap",
+    "publish": "cp dist/index.js ../../find-and-replace-all/index.js",
     "test": "jest"
   },
   "author": "Geoff Lamrock",
