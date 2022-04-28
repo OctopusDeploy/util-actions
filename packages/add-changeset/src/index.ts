@@ -75,25 +75,29 @@ async function addChangeset({ filter, ignore, type, summary, cwd }: AddChangeset
     return writtenChangeset;
 }
 
-try {
-    const filter = getInput("filter");
-    const ignore = getMultilineInput("ignore");
-    const type = getInput("type");
+async function addChangesetAction() {
+    try {
+        const filter = getInput("filter");
+        const ignore = getMultilineInput("ignore");
+        const type = getInput("type");
 
-    if (type !== "major" && type !== "minor" && type !== "patch") throw new Error("Type must be one of 'major', 'minor' or 'patch'");
+        if (type !== "major" && type !== "minor" && type !== "patch") throw new Error("Type must be one of 'major', 'minor' or 'patch'");
 
-    const summary = getInput("summary");
-    const cwd = getInput("cwd");
+        const summary = getInput("summary");
+        const cwd = getInput("cwd");
 
-    const changesetFilePath = addChangeset({
-        filter: filter === "" ? undefined : new RegExp(filter),
-        summary,
-        ignore,
-        type,
-        cwd,
-    });
+        const changesetName = await addChangeset({
+            filter: filter === "" ? undefined : new RegExp(filter),
+            summary,
+            ignore,
+            type,
+            cwd,
+        });
 
-    setOutput("changeset", changesetFilePath);
-} catch (error) {
-    setFailed(error.message);
+        setOutput("changeset", changesetName);
+    } catch (error) {
+        setFailed(error.message);
+    }
 }
+
+addChangesetAction().catch(() => process.exit(1));
