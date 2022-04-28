@@ -28,9 +28,10 @@ importers:
       prettier: 2.6.2
       typescript: 4.6.3
 
-  packages/find-and-replace-all:
+  packages/extract-package-details:
     specifiers:
       '@actions/core': ^1.7.0
+      '@octopusdeploy/shared-action-utils': 0.0.1
       '@types/jest': 27.4.1
       '@types/node': 16.11.7
       esbuild: 0.14.38
@@ -42,6 +43,7 @@ importers:
       typescript: 4.6.3
     dependencies:
       '@actions/core': 1.7.0
+      '@octopusdeploy/shared-action-utils': link:../shared-action-utils
     devDependencies:
       '@types/jest': 27.4.1
       '@types/node': 16.11.7
@@ -52,6 +54,42 @@ importers:
       jest-runner-eslint: 1.0.0_eslint@8.14.0+jest@27.5.1
       ts-jest: 27.1.4_c797a9a28c6a4b0e72bd5fe364b20216
       typescript: 4.6.3
+
+  packages/find-and-replace-all:
+    specifiers:
+      '@actions/core': ^1.7.0
+      '@octopusdeploy/shared-action-utils': 0.0.1
+      '@types/jest': 27.4.1
+      '@types/node': 16.11.7
+      esbuild: 0.14.38
+      jest: 27.5.1
+      jest-expect-message: 1.0.2
+      jest-extended: 2.0.0
+      jest-runner-eslint: 1.0.0
+      ts-jest: 27.1.4
+      typescript: 4.6.3
+    dependencies:
+      '@actions/core': 1.7.0
+      '@octopusdeploy/shared-action-utils': link:../shared-action-utils
+    devDependencies:
+      '@types/jest': 27.4.1
+      '@types/node': 16.11.7
+      esbuild: 0.14.38
+      jest: 27.5.1
+      jest-expect-message: 1.0.2
+      jest-extended: 2.0.0_jest@27.5.1
+      jest-runner-eslint: 1.0.0_eslint@8.14.0+jest@27.5.1
+      ts-jest: 27.1.4_c797a9a28c6a4b0e72bd5fe364b20216
+      typescript: 4.6.3
+
+  packages/shared-action-utils:
+    specifiers:
+      '@actions/core': ^1.7.0
+      '@types/node': 16.11.7
+    dependencies:
+      '@actions/core': 1.7.0
+    devDependencies:
+      '@types/node': 16.11.7
 
 packages:
 

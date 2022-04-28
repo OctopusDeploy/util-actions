@@ -1,0 +1,15 @@
+name: Extract Package Details
+description: Extract details from package.json
+author: Octopus Deploy
+runs:
+  using: node16
+  main: index.js
+inputs:
+  path:
+    description: "The folder path that contains the package.json"
+    required: true
+outputs:
+  name:
+    description: "The name property from the package.json"
+  version:
+    description: "The version property from the package.json"
