@@ -15,11 +15,11 @@ test("extracts name and version from package json", () => {
 
 test("handles path that does not contain a package.json", () => {
     const context = new TestGitHubActionContext();
-    context.addInput("path", "./src/__tests__/testPackageDoesntExist");
+    context.addInput("path", "./src/__tests__");
 
     extractPackageDetails(context);
-
-    expect(context.getFailureMessage()).toContain("testPackageDoesntExist/package.json' from 'src/extractPackageDetails.ts'");
+    
+    expect(context.getFailureMessage()).toContain("__tests__/package.json' does not exist.");
 });
 
 test("handles path that does not exist", () => {
@@ -27,5 +27,6 @@ test("handles path that does not exist", () => {
     context.addInput("path", "./src/__tests__/doesnotexist");
 
     extractPackageDetails(context);
-    expect(context.getFailureMessage()).toContain("__tests__/doesnotexist/package.json' from 'src/extractPackageDetails.ts'");
+
+    expect(context.getFailureMessage()).toContain("__tests__/doesnotexist' does not exist.");
 });

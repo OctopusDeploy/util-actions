@@ -1,4 +1,6 @@
 import path from "path";
+import fs from "fs";
+
 import { GitHubActionsContext } from "@octopusdeploy/shared-action-utils";
 
 export function extractPackageDetails(context: GitHubActionsContext) {
@@ -9,7 +11,16 @@ export function extractPackageDetails(context: GitHubActionsContext) {
         }
         dirPath = path.resolve(dirPath);
 
+        if(!fs.existsSync(dirPath)) {
+            throw new Error(`Folder at '${dirPath}' does not exist.`);
+        }
+
         const packageJsonPath = path.join(dirPath, "package.json");
+
+        if(!fs.existsSync(packageJsonPath)) {
+            throw new Error(`File at '${packageJsonPath}' does not exist.`)
+        }
+
         const packageJson = require(packageJsonPath);
 
         const name = packageJson.name.toString();
