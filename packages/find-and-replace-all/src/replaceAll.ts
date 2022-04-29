@@ -1,4 +1,4 @@
-import { GitHubActionsContext } from "./GitHubActionsContext";
+import { GitHubActionsContext } from "@octopusdeploy/shared-action-utils";
 
 export function replaceAll(context: GitHubActionsContext) {
     try {
