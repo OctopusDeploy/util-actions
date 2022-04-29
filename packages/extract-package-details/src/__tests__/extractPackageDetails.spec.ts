@@ -18,7 +18,7 @@ test("handles path that does not contain a package.json", () => {
     context.addInput("path", "./src/__tests__");
 
     extractPackageDetails(context);
-    
+
     expect(context.getFailureMessage()).toContain("__tests__/package.json' does not exist.");
 });
 

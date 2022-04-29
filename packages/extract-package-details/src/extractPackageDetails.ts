@@ -11,14 +11,14 @@ export function extractPackageDetails(context: GitHubActionsContext) {
         }
         dirPath = path.resolve(dirPath);
 
-        if(!fs.existsSync(dirPath)) {
+        if (!fs.existsSync(dirPath)) {
             throw new Error(`Folder at '${dirPath}' does not exist.`);
         }
 
         const packageJsonPath = path.join(dirPath, "package.json");
 
-        if(!fs.existsSync(packageJsonPath)) {
-            throw new Error(`File at '${packageJsonPath}' does not exist.`)
+        if (!fs.existsSync(packageJsonPath)) {
+            throw new Error(`File at '${packageJsonPath}' does not exist.`);
         }
 
         const packageJson = require(packageJsonPath);
