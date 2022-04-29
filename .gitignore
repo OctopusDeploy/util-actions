@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Specifically ignore any .js files so we don't accidentally commit compiled code
+# outside of release processes. How do we do a pre-release testing though?
+*.js
