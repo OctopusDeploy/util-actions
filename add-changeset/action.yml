@@ -19,7 +19,7 @@ inputs:
     required: false
   cwd:
     description: "The current working directory where the .changeset folder lives"
-    required: true
+    required: false
 outputs:
   changesetName:
     description: "The name of the changeset created"
