@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --minify --outdir=../../find-and-replace-all",
-    "publish": "cp dist/index.js ../../find-and-replace-all/index.js",
     "test": "jest"
   },
   "author": "Octopus Deploy",
