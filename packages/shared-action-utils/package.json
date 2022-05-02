@@ -1,6 +1,6 @@
 {
   "name": "@octopusdeploy/shared-action-utils",
-  "version": "0.0.1",
+  "version": "0.1.0-alpha.0",
   "description": "Utilities to help build GitHub action ",
   "main": "dist/index.js",
   "scripts": {
