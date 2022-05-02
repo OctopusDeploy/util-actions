@@ -49,12 +49,15 @@ type ActionToPublish = {
 // over to the action folder and then commit it to a "distribution branch". Distribution branches are based on the
 // major version of the version of the action e.g. add-change@1.2.0 -> v1.
 //
-// Specifically, publishing involves the following individually for each action:
+// Note this publish script assumes the following:
+// * The source typescript has been built to create the transpiled js
+// * The transpiled js has been copied from the dist folder inside each package over to the action folder.
+//
+// Specifically in this script, publishing involves the following individually for each action:
 // * Get the package version from package.json
 // * Check if there is an existing tag for that version (taking into consideration the changesets tagging structure for multi-package repos - packagename@version e.g. add-changeset@0.1.0).
 //   If the tag already exists we don't need to do anything as this version has already been published.
-// * Commit the changes for the action to a detached branch. The assumption here is that the contents of the transpiled
-//   js have already been copied across to the action folder prior to the publish
+// * Commit the changes for the action to a detached branch.
 // * Create tag for version
 // * Push branches with follow tags
 
