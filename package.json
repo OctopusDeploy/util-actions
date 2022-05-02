@@ -6,7 +6,7 @@
   "scripts": {
     "build": "pnpm run build --filter={packages}",
     "changeset": "changeset",
-    "ci:version": "pnpm run changeset version && pnpm install --frozen-lockfile=false && pnpm run publish --filter={packages}",
+    "ci:version": "pnpm run changeset version && pnpm install --frozen-lockfile=false",
     "lint:fix": "eslint . --fix",
     "lint": "eslint . --no-error-on-unmatched-pattern",
     "preinstall": "npx only-allow pnpm",
