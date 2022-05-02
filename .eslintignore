@@ -4,3 +4,5 @@ node_modules/*
 **/coverage/*
 renovate-config.js
 find-and-replace-all/index.js
+extract-package-details/index.js
+add-changeset/index.js
