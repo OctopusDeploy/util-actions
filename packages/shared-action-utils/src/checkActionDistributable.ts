@@ -23,6 +23,8 @@ async function checkActionDistributable(): Promise<void> {
 
     if (hasUncommittedChanges) {
         throw new Error("Some actions have uncommitted changes to their distributable js files, check logs above for details and commit changes");
+    } else {
+        console.log("All actions have up to date distributable files");
     }
 }
 
