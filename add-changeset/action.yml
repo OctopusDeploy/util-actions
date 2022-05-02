@@ -1,0 +1,27 @@
+name: Add changeset
+description: Adds a changeset containing one or more projects
+author: Octopus Deploy
+runs:
+  using: node16
+  main: index.js
+inputs:
+  type:
+    description: "The version type to set for each package in the changeset (major|minor|patch)"
+    required: true
+  summary:
+    description: "The summary for the changeset"
+    required: true
+  filter:
+    description: "A regular expression to filter packages by"
+    required: false
+  ignore:
+    description: "Array of glob patterns to ignore packages with"
+    required: false
+  cwd:
+    description: "The current working directory where the .changeset folder lives"
+    required: true
+outputs:
+  changesetName:
+    description: "The name of the changeset created"
+  changesetPath:
+    description: "The path where the changeset file was created"

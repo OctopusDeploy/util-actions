@@ -1,9 +1,13 @@
-import { getInput, setOutput, setFailed } from "@actions/core";
-import { GitHubActionsContext } from "./GitHubActionsContext";
+import { getInput, getMultilineInput, setOutput, setFailed, info } from "@actions/core";
+import { GitHubActionsContext, InputOptions } from "./GitHubActionsContext";
 
 export class GitHubActionsContextImpl implements GitHubActionsContext {
-    getInput(name: string): string {
-        return getInput(name);
+    getInput(name: string, options?: InputOptions): string {
+        return getInput(name, options);
+    }
+
+    getMultilineInput(name: string, options?: InputOptions): string[] {
+        return getMultilineInput(name, options);
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -13,5 +17,9 @@ export class GitHubActionsContextImpl implements GitHubActionsContext {
 
     setFailed(message: string): void {
         return setFailed(message);
+    }
+
+    info(message: string): void {
+        return info(message);
     }
 }
