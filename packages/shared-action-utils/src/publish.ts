@@ -46,7 +46,7 @@ type ActionToPublish = {
     name: string;
     version: string;
     tag: string;
-    majorVersionNumber: string;
+    releaseBranch: string;
     directoryPath: string;
 };
 
@@ -71,7 +71,7 @@ async function publish(): Promise<void> {
             version: packageJsonForAction.version,
             tag: `${packageJsonForAction.name}@${packageJsonForAction.version}`,
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            majorVersionNumber: `v${packageJsonForAction.version.split(".")[0]!}`,
+            releaseBranch: `v${packageJsonForAction.version.split(".")[0]!}`,
             directoryPath: path.join(...actionPathFolders),
         });
     }
@@ -90,12 +90,16 @@ async function publish(): Promise<void> {
             throw new Error(`git ls-remote exited with ${exitCode}:\n${stderr}`);
         }
 
-        console.log(`Publishing action '${actionToPublish.name}' version '${actionToPublish.version}'`);
+        console.log(
+            `Publishing action '${actionToPublish.name}' version '${actionToPublish.version}' to distribution branch '${actionToPublish.releaseBranch}'`
+        );
 
         await exec("git", ["checkout", "--detach"]);
         await exec("git", ["add", "--force", actionToPublish.directoryPath]);
         await exec("git", ["commit", "-m", actionToPublish.tag]);
         await exec("git", ["tag", actionToPublish.tag]);
+
+        await exec("git", ["push", "--force", "--follow-tags", "origin", `HEAD:refs/heads/${actionToPublish.releaseBranch}`]);
     }
 }
 
