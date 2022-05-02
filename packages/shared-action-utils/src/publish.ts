@@ -97,7 +97,7 @@ async function publish(): Promise<void> {
         await exec("git", ["checkout", "--detach"]);
         await exec("git", ["add", "--force", actionToPublish.directoryPath]);
         await exec("git", ["commit", "-m", actionToPublish.tag]);
-        await exec("git", ["tag", actionToPublish.tag]);
+        await exec("git", ["tag", actionToPublish.tag, "-m", actionToPublish.tag]);
 
         await exec("git", ["push", "--force", "--follow-tags", "origin", `HEAD:refs/heads/${actionToPublish.releaseBranch}`]);
     }
