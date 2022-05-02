@@ -1,13 +1,3 @@
-// Plan:
-// * Get all packages that have actions
-// * Get their package version
-// * See if there is an existing tag for that version (taking into consideration the changesets tagging structure for multi-package repos - packagename@version e.g. add-changeset@0.1.0)
-// * Copy and commit the relevant distributable files to their relevant action folder
-// * Commit the changes to the relevant major branch for each action individually, taking into consideration each actions version
-//   e.g. add-changeset@1.1.1 would be committed to v1 branch, find-and-replace-all@2.0.1 would be committed to v2 branch
-// * Create tag for version
-// * Push branches with follow tags
-
 import { existsSync } from "fs";
 import { readFile } from "fs/promises";
 import glob, { IOptions } from "glob";
@@ -49,6 +39,24 @@ type ActionToPublish = {
     releaseBranch: string;
     directoryPath: string;
 };
+
+// Each action has two folders, the source folder under packages and a folder that is
+// used to hold the action used in workflows including the transpiled js, which lives at the top level.
+// e.g. action "add-changeset" has folders {repoRoot}/add-changeset and {repoRoot}/packages/add-changeset.
+//
+// In development and main branches we don't store the transpiled js as we don't want it to sully up the repo.
+// Instead during publishing a new version of the action we will copy the js from the dist folder of the package
+// over to the action folder and then commit it to a "distribution branch". Distribution branches are based on the
+// major version of the version of the action e.g. add-change@1.2.0 -> v1.
+//
+// Specifically, publishing involves the following individually for each action:
+// * Get the package version from package.json
+// * Check if there is an existing tag for that version (taking into consideration the changesets tagging structure for multi-package repos - packagename@version e.g. add-changeset@0.1.0).
+//   If the tag already exists we don't need to do anything as this version has already been published.
+// * Commit the changes for the action to a detached branch. The assumption here is that the contents of the transpiled
+//   js have already been copied across to the action folder prior to the publish
+// * Create tag for version
+// * Push branches with follow tags
 
 async function publish(): Promise<void> {
     const actions = await globAsync("**/action.yml", { ignore: ["packages/**", "node_modules/**", "**/__tests/**"] });
@@ -97,6 +105,9 @@ async function publish(): Promise<void> {
         await exec("git", ["checkout", "--detach"]);
         await exec("git", ["add", "--force", actionToPublish.directoryPath]);
         await exec("git", ["commit", "-m", actionToPublish.tag]);
+
+        // The -m option here creates an annotated tag,
+        // we need this so that the push with --follow-tags grabs the tag too
         await exec("git", ["tag", actionToPublish.tag, "-m", actionToPublish.tag]);
 
         await exec("git", ["push", "--force", "--follow-tags", "origin", `HEAD:refs/heads/${actionToPublish.releaseBranch}`]);
