@@ -22,6 +22,7 @@ export function replaceAll(context: GitHubActionsContext) {
         }
 
         context.setOutput("value", replaced);
+        console.log("test");
     } catch (error) {
         context.setFailed(error.message);
     }
