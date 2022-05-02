@@ -120,10 +120,16 @@ importers:
   packages/shared-action-utils:
     specifiers:
       '@actions/core': ^1.7.0
+      '@actions/exec': 1.1.1
+      '@types/glob': 7.2.0
       '@types/node': 16.11.7
+      glob: 7.2.0
     dependencies:
       '@actions/core': 1.7.0
+      '@actions/exec': 1.1.1
+      glob: 7.2.0
     devDependencies:
+      '@types/glob': 7.2.0
       '@types/node': 16.11.7
 
 packages:
@@ -134,10 +140,20 @@ packages:
       '@actions/http-client': 1.0.11
     dev: false
 
+  /@actions/exec/1.1.1:
+    resolution: {integrity: sha512-+sCcHHbVdk93a0XT19ECtO/gIXoxvdsgQLzb2fE2/5sIZmWQuluYyjPQtrtTHdU1YzTZ7bAPN4sITq2xi1679w==}
+    dependencies:
+      '@actions/io': 1.1.2
+    dev: false
+
   /@actions/http-client/1.0.11:
     resolution: {integrity: sha512-VRYHGQV1rqnROJqdMvGUbY/Kn8vriQe/F9HR2AlYHzmKuM/p3kjNuXhmdBfcVgsvRWTz5C5XW5xvndZrVBuAYg==}
     dependencies:
       tunnel: 0.0.6
+    dev: false
+
+  /@actions/io/1.1.2:
+    resolution: {integrity: sha512-d+RwPlMp+2qmBfeLYPLXuSRykDIFEwdTA0MMxzS9kh4kvP1ftrc/9fzy6pX6qAjthdXruHQ6/6kjT/DNo5ALuw==}
     dev: false
 
   /@ampproject/remapping/2.2.0:

@@ -46,6 +46,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Check that action dist folders are up to date
+        run: pnpm ci:checkdist
+
       - name: Test
         run: pnpm test
 
