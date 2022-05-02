@@ -32,13 +32,67 @@ const loadProjectPackageJson = async (packageJsonPath: string): Promise<PackageJ
     return JSON.parse(contents.toString());
 };
 
-type ActionToPublish = {
+type GitHubAction = {
     name: string;
     version: string;
     tag: string;
     releaseBranch: string;
     directoryPath: string;
 };
+
+async function gatherActionsToPotentiallyPublish(): Promise<Array<GitHubAction>> {
+    const actions = await globAsync("**/action.yml", { ignore: ["packages/**", "node_modules/**", "**/__tests/**"] });
+
+    const actionsToPublish: Array<GitHubAction> = [];
+
+    for (const actionPath of actions) {
+        // Get the folder of the action which doubles as the key
+        // e.g. for {reporoot}/extract-package-details/action.yml
+        // the action key is extrac-package-details
+        let actionPathFolders = actionPath.split("/");
+        actionPathFolders = actionPathFolders.slice(0, actionPathFolders.length - 1);
+        const actionFolder = actionPathFolders[actionPathFolders.length - 1];
+        const packageJsonPathForAction = `./packages/${actionFolder}/package.json`;
+
+        const packageJsonForAction = await loadProjectPackageJson(packageJsonPathForAction);
+
+        actionsToPublish.push({
+            name: packageJsonForAction.name,
+            version: packageJsonForAction.version,
+            tag: `${packageJsonForAction.name}@${packageJsonForAction.version}`,
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            releaseBranch: `v${packageJsonForAction.version.split(".")[0]!}`,
+            directoryPath: path.join(...actionPathFolders),
+        });
+    }
+
+    return actionsToPublish;
+}
+
+async function publishActionIfRequired(action: GitHubAction): Promise<void> {
+    const { exitCode, stderr } = await getExecOutput(`git`, ["ls-remote", "--exit-code", "origin", "--tags", `refs/tags/${action.tag}`], {
+        ignoreReturnCode: true,
+    });
+    if (exitCode === 0) {
+        console.log(`Action is not being published because version ${action.tag} is already published`);
+        return;
+    }
+    if (exitCode !== 2) {
+        throw new Error(`git ls-remote exited with ${exitCode}:\n${stderr}`);
+    }
+
+    console.log(`Publishing action '${action.name}' version '${action.version}' to distribution branch '${action.releaseBranch}'`);
+
+    await exec("git", ["checkout", "--detach"]);
+    await exec("git", ["add", "--force", action.directoryPath]);
+    await exec("git", ["commit", "-m", action.tag]);
+
+    // The -m option here creates an annotated tag,
+    // we need this so that the push with --follow-tags grabs the tag too
+    await exec("git", ["tag", action.tag, "-m", action.tag]);
+
+    await exec("git", ["push", "--force", "--follow-tags", "origin", `HEAD:refs/heads/${action.releaseBranch}`]);
+}
 
 // Each action has two folders, the source folder under packages and a folder that is
 // used to hold the action used in workflows including the transpiled js, which lives at the top level.
@@ -62,58 +116,10 @@ type ActionToPublish = {
 // * Push branches with follow tags
 
 async function publish(): Promise<void> {
-    const actions = await globAsync("**/action.yml", { ignore: ["packages/**", "node_modules/**", "**/__tests/**"] });
-
-    const actionsToPublish: Array<ActionToPublish> = [];
-
-    for (const actionPath of actions) {
-        // Get the folder of the action which doubles as the key
-        // e.g. for {reporoot}/extract-package-details/action.yml
-        // the action key is extrac-package-details
-        let actionPathFolders = actionPath.split("/");
-        actionPathFolders = actionPathFolders.slice(0, actionPathFolders.length - 1);
-        const actionFolder = actionPathFolders[actionPathFolders.length - 1];
-        const packageJsonPathForAction = `./packages/${actionFolder}/package.json`;
-
-        const packageJsonForAction = await loadProjectPackageJson(packageJsonPathForAction);
-
-        actionsToPublish.push({
-            name: packageJsonForAction.name,
-            version: packageJsonForAction.version,
-            tag: `${packageJsonForAction.name}@${packageJsonForAction.version}`,
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            releaseBranch: `v${packageJsonForAction.version.split(".")[0]!}`,
-            directoryPath: path.join(...actionPathFolders),
-        });
-    }
-
-    console.log(actionsToPublish);
+    const actionsToPublish = await gatherActionsToPotentiallyPublish();
 
     for (const actionToPublish of actionsToPublish) {
-        const { exitCode, stderr } = await getExecOutput(`git`, ["ls-remote", "--exit-code", "origin", "--tags", `refs/tags/${actionToPublish.tag}`], {
-            ignoreReturnCode: true,
-        });
-        if (exitCode === 0) {
-            console.log(`Action is not being published because version ${actionToPublish.tag} is already published`);
-            continue;
-        }
-        if (exitCode !== 2) {
-            throw new Error(`git ls-remote exited with ${exitCode}:\n${stderr}`);
-        }
-
-        console.log(
-            `Publishing action '${actionToPublish.name}' version '${actionToPublish.version}' to distribution branch '${actionToPublish.releaseBranch}'`
-        );
-
-        await exec("git", ["checkout", "--detach"]);
-        await exec("git", ["add", "--force", actionToPublish.directoryPath]);
-        await exec("git", ["commit", "-m", actionToPublish.tag]);
-
-        // The -m option here creates an annotated tag,
-        // we need this so that the push with --follow-tags grabs the tag too
-        await exec("git", ["tag", actionToPublish.tag, "-m", actionToPublish.tag]);
-
-        await exec("git", ["push", "--force", "--follow-tags", "origin", `HEAD:refs/heads/${actionToPublish.releaseBranch}`]);
+        await publishActionIfRequired(actionToPublish);
     }
 }
 
