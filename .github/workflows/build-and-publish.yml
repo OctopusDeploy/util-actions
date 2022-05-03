@@ -55,6 +55,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     name: Publish actions
+    needs: build
 
     # Only run publishing on commits that perform versioning
     if: ${{ startsWith(github.event.commits[0].message, 'Version Packages') }}
