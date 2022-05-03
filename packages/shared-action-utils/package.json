@@ -1,18 +1,20 @@
 {
-    "name": "@octopusdeploy/shared-action-utils",
-    "version": "0.0.1",
-    "description": "Utilities to help build GitHub action ",
-    "main": "dist/index.js",
-    "scripts": {
-      "build": "tsc --declaration"
+  "name": "@octopusdeploy/shared-action-utils",
+  "version": "0.0.1",
+  "description": "Utilities to help build GitHub action ",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --declaration"
   },
-    "author": "Octopus Deploy",
-    "license": "Apache-2.0",
-    "dependencies": {
-      "@actions/core": "^1.7.0"
-    },
-    "devDependencies": {
-      "@types/node": "16.11.7"
-    }
+  "author": "Octopus Deploy",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@actions/core": "^1.7.0",
+    "@actions/exec": "1.1.1",
+    "glob": "7.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.7",
+    "@types/glob": "7.2.0"
   }
-  
+}

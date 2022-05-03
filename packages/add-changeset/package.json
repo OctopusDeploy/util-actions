@@ -4,8 +4,7 @@
   "description": "Adds a changeset containing one or more projects",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --outdir=dist --sourcemap",
-    "publish": "cp dist/index.js ../../add-changeset/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --minify --outdir=../../add-changeset",
     "test": "jest"
   },
   "author": "Octopus Deploy",

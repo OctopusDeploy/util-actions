@@ -4,8 +4,7 @@
   "description": "Extracts details from a package.json file",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --outdir=dist --sourcemap",
-    "publish": "cp dist/index.js ../../extract-package-details/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --minify --outdir=../../extract-package-details",
     "test": "jest"
   },
   "author": "Octopus Deploy",

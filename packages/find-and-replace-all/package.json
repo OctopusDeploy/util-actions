@@ -4,8 +4,7 @@
   "description": "Find and replace all instances of a string",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --outdir=dist --sourcemap",
-    "publish": "cp dist/index.js ../../find-and-replace-all/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --minify --outdir=../../find-and-replace-all",
     "test": "jest"
   },
   "author": "Octopus Deploy",
