@@ -4,23 +4,13 @@ A set of utility actions for use in GitHub action workflows.
 
 ## Usage
 
-Actions in this repo can be used by referencing the folder in which they live e.g.
+Actions in this repo can be used by referencing the folder in which they live and a tag e.g.
 
 ```yml
-- uses: OctopusDeploy/util-actions/find-and-replace-all@v0
+- uses: OctopusDeploy/util-actions/find-and-replace-all@find-and-replace-all.0.1.0
 ```
 
-### Major version branches
-
-To use the latest minor/patch version instead a major version of the action, use the `v{version}` reference as in the example above.
-
-### Specific versions
-
-To use a specific version of an action, reference it using tags created on the repo in the format `{action}@{version}`, e.g.
-
-```yml
-- uses: OctopusDeploy/util-actions/find-and-replace-all@find-and-replace-all@0.1.0
-```
+Note: At the moment only specific tags are supported, there is no major version available.
 
 ## Actions
 
@@ -36,7 +26,7 @@ For example you might to create a set of pre-release npm packages for each commi
 | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | type    | The version type to set for each package in the changeset (major, minor, patch)                                                                | Y        |
 | summary | The summary for the changeset                                                                                                                  | Y        |
-| filter  | A regular expression to filter packages by                                                                                                     | N        |
+| filter  | A regular expression to filter packages using the name of the package (from package.json)                                                      | N        |
 | ignore  | Array of glob patterns to ignore packages with                                                                                                 | N        |
 | cwd     | The current working directory where the .changeset folder lives. This is typically the root of your repo and defaults to this if not supplied. | N        |
 
@@ -107,7 +97,7 @@ This action allows you to find and replace all instances of a string using a dir
 
 #### Example
 
-*String*
+_String_
 
 String replacement is case-sensitive.
 
@@ -121,7 +111,7 @@ String replacement is case-sensitive.
 
 This will result in an output variable named `value` with a value of `The quick brown fox jumps over hooray lazy dog`. The case-sensitivity here is important to note.
 
-*Regular Expression*
+_Regular Expression_
 
 ```yml
 - uses: OctopusDeploy/util-actions/find-and-replace-all@v0
