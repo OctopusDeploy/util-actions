@@ -40,7 +40,7 @@ For example you might to create a set of pre-release npm packages for each commi
 #### Example
 
 ```yml
-- uses: OctopusDeploy/util-actions/add-changeset@v0
+- uses: OctopusDeploy/util-actions/add-changeset@add-changeset.0.1.0
   with:
     type: patch
     summary: Changeset added for pre-release versioning
@@ -70,7 +70,7 @@ This action allows you to extract the `name` and `version` from within an npm pa
 #### Example
 
 ```yml
-- uses: OctopusDeploy/util-actions/extract-package-details@v0
+- uses: OctopusDeploy/util-actions/extract-package-details@extract-package-details.0.1.0
   with:
     path: /path/to/my/package
 ```
@@ -102,7 +102,7 @@ _String_
 String replacement is case-sensitive.
 
 ```yml
-- uses: OctopusDeploy/util-actions/find-and-replace-all@v0
+- uses: OctopusDeploy/util-actions/find-and-replace-all@find-and-replace-all.0.1.0
   with:
     source: The quick brown fox jumps over the lazy dog
     searchString: the
@@ -114,7 +114,7 @@ This will result in an output variable named `value` with a value of `The quick 
 _Regular Expression_
 
 ```yml
-- uses: OctopusDeploy/util-actions/find-and-replace-all@v0
+- uses: OctopusDeploy/util-actions/find-and-replace-all@find-and-replace-all.0.1.0
   with:
     source: The quick brown fox jumps over the lazy dog
     searchRegex: the
