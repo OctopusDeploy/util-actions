@@ -1,18 +1,17 @@
 {
   "name": "extract-package-details",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Extracts details from a package.json file",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --outdir=dist --sourcemap",
-    "publish": "cp dist/index.js ../../extract-package-details/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --minify --outdir=../../extract-package-details",
     "test": "jest"
   },
   "author": "Octopus Deploy",
   "license": "Apache-2.0",
   "dependencies": {
     "@actions/core": "^1.7.0",
-    "@octopusdeploy/shared-action-utils": "0.0.1"
+    "@octopusdeploy/shared-action-utils": "0.1.0"
   },
   "devDependencies": {
     "@types/jest": "27.4.1",
