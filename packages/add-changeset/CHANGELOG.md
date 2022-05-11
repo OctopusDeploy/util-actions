@@ -1,5 +1,11 @@
 # add-changeset
 
+## 0.1.1
+
+### Patch Changes
+
+-   1c0f37d: Changes `cwd` parameter to be not required
+
 ## 0.1.0
 
 ### Minor Changes
