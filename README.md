@@ -47,7 +47,7 @@ For example you might to create a set of pre-release npm packages for each commi
     ignore: |
       node_modules/**
       **/__tests__/**
-    filter: "@octopusdeploy/" # Only include any packages with a scope of @octopusdeploy
+    filter: "@octopusdeploy" # Only include any packages with a scope of @octopusdeploy
 ```
 
 ### `extract-package-details`
