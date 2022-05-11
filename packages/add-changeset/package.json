@@ -1,6 +1,6 @@
 {
   "name": "add-changeset",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Adds a changeset containing one or more projects",
   "main": "index.js",
   "scripts": {
