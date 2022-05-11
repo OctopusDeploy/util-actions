@@ -109,7 +109,7 @@ export async function addChangesetAction(context: GitHubActionsContext) {
                 summary,
                 ignore,
                 type,
-                cwd: cwd === "" ? undefined : cwd,
+                cwd: cwd === "" ? process.cwd() : cwd,
             },
             context
         );

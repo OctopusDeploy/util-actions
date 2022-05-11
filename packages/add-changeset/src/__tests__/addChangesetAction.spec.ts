@@ -94,3 +94,28 @@ test("Invalid type fails action", async () => {
 
     expect(context.getFailureMessage()).toEqual("Type must be one of 'major', 'minor' or 'patch'");
 });
+
+test("When cwd is not provided defaults to current directory", async () => {
+    const context = new TestGitHubActionContext();
+
+    context.addInput("type", "patch");
+    context.addInput("summary", "This is a test");
+    context.addInput("filter", "test-package.*");
+
+    await addChangesetAction(context);
+
+    console.log(context);
+    const outputs = context.getOutputs();
+
+    expect(outputs.changesetName).not.toBeUndefined();
+
+    const cwd = process.cwd();
+    const expectedChangesetDirectory = path.join(cwd, ".changeset");
+    const expectedChangesetPath = path.join(expectedChangesetDirectory, `${outputs.changesetName}.md`);
+    expect(outputs.changesetPath).toEqual(expectedChangesetPath);
+
+    const expectedChangesetContents = '---\n"test-package-1": patch\n"test-package-2": patch\n---\n\nThis is a test\n';
+
+    const changesetContents = (await readFile(outputs.changesetPath)).toString();
+    expect(changesetContents).toEqual(expectedChangesetContents);
+});
