@@ -26,6 +26,7 @@ module.exports = {
     constraints: {
         pnpm: "< 7.0.0",
     },
+    allowedPostUpgradeCommands: ["pnpm build"],
     postUpgradeTasks: {
         commands: ["pnpm build"],
         fileFilters: ["**/index.js"],
