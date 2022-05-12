@@ -23,4 +23,13 @@ module.exports = {
     timezone: "Australia/Brisbane",
     onboarding: false,
     requireConfig: false,
+    constraints: {
+        pnpm: "< 7.0.0",
+    },
+    allowedPostUpgradeCommands: [".*"],
+    postUpgradeTasks: {
+        commands: ["npm i -g pnpm@'< 7.0.0' && pnpm install && pnpm build"],
+        fileFilters: ["**/index.js"],
+        executionMode: "update"
+    }
 };
