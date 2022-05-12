@@ -11,6 +11,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.2
 
+      # Note: Renovate runs within it's own docker container and doesn't 
+      # know really anything about which version of tooling are in use e.g. pnpm
+      # it just uses the latest version. This could potentially cause issues if
+      # a new major version of pnpm gets released, so we have a constraint in
+      # the renovate-config.js file to restrict it to use v6 to align with us.
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@v29.36.2
         with:
