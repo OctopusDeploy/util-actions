@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@changesets/cli': ^2.22.0
+      '@changesets/cli': 2.22.0
       '@typescript-eslint/eslint-plugin': 5.21.0
       '@typescript-eslint/parser': 5.21.0
       eslint: 8.14.0
@@ -30,7 +30,7 @@ importers:
 
   packages/add-changeset:
     specifiers:
-      '@actions/core': ^1.7.0
+      '@actions/core': 1.8.2
       '@changesets/types': 5.0.0
       '@changesets/write': 0.1.8
       '@octopusdeploy/shared-action-utils': 0.1.0
@@ -46,7 +46,7 @@ importers:
       ts-jest: 26.5.6
       typescript: 4.6.3
     dependencies:
-      '@actions/core': 1.7.0
+      '@actions/core': 1.8.2
       '@changesets/types': 5.0.0
       '@changesets/write': 0.1.8
       '@octopusdeploy/shared-action-utils': link:../shared-action-utils
@@ -65,7 +65,7 @@ importers:
 
   packages/extract-package-details:
     specifiers:
-      '@actions/core': ^1.7.0
+      '@actions/core': 1.8.2
       '@octopusdeploy/shared-action-utils': 0.1.0
       '@types/jest': 27.5.1
       '@types/node': 16.11.34
@@ -77,7 +77,7 @@ importers:
       ts-jest: 26.5.6
       typescript: 4.6.3
     dependencies:
-      '@actions/core': 1.7.0
+      '@actions/core': 1.8.2
       '@octopusdeploy/shared-action-utils': link:../shared-action-utils
     devDependencies:
       '@types/jest': 27.5.1
@@ -92,7 +92,7 @@ importers:
 
   packages/find-and-replace-all:
     specifiers:
-      '@actions/core': ^1.7.0
+      '@actions/core': 1.8.2
       '@octopusdeploy/shared-action-utils': 0.1.0
       '@types/jest': 27.5.1
       '@types/node': 16.11.34
@@ -104,7 +104,7 @@ importers:
       ts-jest: 26.5.6
       typescript: 4.6.3
     dependencies:
-      '@actions/core': 1.7.0
+      '@actions/core': 1.8.2
       '@octopusdeploy/shared-action-utils': link:../shared-action-utils
     devDependencies:
       '@types/jest': 27.5.1
@@ -119,13 +119,13 @@ importers:
 
   packages/shared-action-utils:
     specifiers:
-      '@actions/core': ^1.7.0
+      '@actions/core': 1.8.2
       '@actions/exec': 1.1.1
       '@types/glob': 7.2.0
       '@types/node': 16.11.34
       glob: 7.2.0
     dependencies:
-      '@actions/core': 1.7.0
+      '@actions/core': 1.8.2
       '@actions/exec': 1.1.1
       glob: 7.2.0
     devDependencies:
@@ -134,10 +134,10 @@ importers:
 
 packages:
 
-  /@actions/core/1.7.0:
-    resolution: {integrity: sha512-7fPSS7yKOhTpgLMbw7lBLc1QJWvJBBAgyTX2PEhagWcKK8t0H8AKCoPMfnrHqIm5cRYH4QFPqD1/ruhuUE7YcQ==}
+  /@actions/core/1.8.2:
+    resolution: {integrity: sha512-FXcBL7nyik8K5ODeCKlxi+vts7torOkoDAKfeh61EAkAy1HAvwn9uVzZBY0f15YcQTcZZ2/iSGBFHEuioZWfDA==}
     dependencies:
-      '@actions/http-client': 1.0.11
+      '@actions/http-client': 2.0.1
     dev: false
 
   /@actions/exec/1.1.1:
@@ -146,8 +146,8 @@ packages:
       '@actions/io': 1.1.2
     dev: false
 
-  /@actions/http-client/1.0.11:
-    resolution: {integrity: sha512-VRYHGQV1rqnROJqdMvGUbY/Kn8vriQe/F9HR2AlYHzmKuM/p3kjNuXhmdBfcVgsvRWTz5C5XW5xvndZrVBuAYg==}
+  /@actions/http-client/2.0.1:
+    resolution: {integrity: sha512-PIXiMVtz6VvyaRsGY268qvj57hXQEpsYogYOu2nrQhlf+XCGmZstmuZBbAybUl1nQGnvS1k1eEsQ69ZoD7xlSw==}
     dependencies:
       tunnel: 0.0.6
     dev: false

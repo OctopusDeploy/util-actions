@@ -10,7 +10,7 @@
   "author": "Octopus Deploy",
   "license": "Apache-2.0",
   "dependencies": {
-    "@actions/core": "^1.7.0",
+    "@actions/core": "1.8.2",
     "@octopusdeploy/shared-action-utils": "0.1.0"
   },
   "devDependencies": {
