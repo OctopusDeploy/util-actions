@@ -38,7 +38,7 @@ importers:
       '@types/jest': 27.5.1
       '@types/node': 16.11.36
       esbuild: 0.14.39
-      glob: 7.2.0
+      glob: 7.2.3
       jest: 26.6.3
       jest-expect-message: 1.0.2
       jest-extended: 1.2.1
@@ -50,7 +50,7 @@ importers:
       '@changesets/types': 5.0.0
       '@changesets/write': 0.1.8
       '@octopusdeploy/shared-action-utils': link:../shared-action-utils
-      glob: 7.2.0
+      glob: 7.2.3
     devDependencies:
       '@types/glob': 7.2.0
       '@types/jest': 27.5.1
@@ -123,11 +123,11 @@ importers:
       '@actions/exec': 1.1.1
       '@types/glob': 7.2.0
       '@types/node': 16.11.36
-      glob: 7.2.0
+      glob: 7.2.3
     dependencies:
       '@actions/core': 1.8.2
       '@actions/exec': 1.1.1
-      glob: 7.2.0
+      glob: 7.2.3
     devDependencies:
       '@types/glob': 7.2.0
       '@types/node': 16.11.36
@@ -809,7 +809,7 @@ packages:
       chalk: 4.1.2
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
-      glob: 7.2.0
+      glob: 7.2.3
       graceful-fs: 4.2.10
       istanbul-lib-coverage: 3.2.0
       istanbul-lib-instrument: 4.0.3
@@ -2925,8 +2925,8 @@ packages:
       is-glob: 4.0.3
     dev: true
 
-  /glob/7.2.0:
-    resolution: {integrity: sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q==}
+  /glob/7.2.3:
+    resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -3529,7 +3529,7 @@ packages:
       babel-jest: 26.6.3_@babel+core@7.17.9
       chalk: 4.1.2
       deepmerge: 4.2.2
-      glob: 7.2.0
+      glob: 7.2.3
       graceful-fs: 4.2.10
       jest-environment-jsdom: 26.6.2
       jest-environment-node: 26.6.2
@@ -3851,7 +3851,7 @@ packages:
       cjs-module-lexer: 0.6.0
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
-      glob: 7.2.0
+      glob: 7.2.3
       graceful-fs: 4.2.10
       jest-config: 26.6.3
       jest-haste-map: 26.6.2
@@ -4915,7 +4915,7 @@ packages:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     hasBin: true
     dependencies:
-      glob: 7.2.0
+      glob: 7.2.3
     dev: true
 
   /rsvp/4.8.5:
@@ -5313,7 +5313,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       '@istanbuljs/schema': 0.1.3
-      glob: 7.2.0
+      glob: 7.2.3
       minimatch: 3.1.2
     dev: true
 
