@@ -16,7 +16,7 @@
   "devDependencies": {
     "@types/jest": "27.5.1",
     "@types/node": "16.11.36",
-    "esbuild": "0.14.41",
+    "esbuild": "0.14.42",
     "jest": "26.6.3",
     "jest-expect-message": "1.0.2",
     "jest-extended": "1.2.1",
