@@ -35,7 +35,7 @@ importers:
       '@changesets/write': 0.1.8
       '@octopusdeploy/shared-action-utils': 0.1.0
       '@types/glob': 7.2.0
-      '@types/jest': 27.5.1
+      '@types/jest': 27.5.2
       '@types/node': 16.11.38
       esbuild: 0.14.42
       glob: 7.2.3
@@ -53,7 +53,7 @@ importers:
       glob: 7.2.3
     devDependencies:
       '@types/glob': 7.2.0
-      '@types/jest': 27.5.1
+      '@types/jest': 27.5.2
       '@types/node': 16.11.38
       esbuild: 0.14.42
       jest: 26.6.3
@@ -67,7 +67,7 @@ importers:
     specifiers:
       '@actions/core': 1.8.2
       '@octopusdeploy/shared-action-utils': 0.1.0
-      '@types/jest': 27.5.1
+      '@types/jest': 27.5.2
       '@types/node': 16.11.38
       esbuild: 0.14.42
       jest: 26.6.3
@@ -80,7 +80,7 @@ importers:
       '@actions/core': 1.8.2
       '@octopusdeploy/shared-action-utils': link:../shared-action-utils
     devDependencies:
-      '@types/jest': 27.5.1
+      '@types/jest': 27.5.2
       '@types/node': 16.11.38
       esbuild: 0.14.42
       jest: 26.6.3
@@ -94,7 +94,7 @@ importers:
     specifiers:
       '@actions/core': 1.8.2
       '@octopusdeploy/shared-action-utils': 0.1.0
-      '@types/jest': 27.5.1
+      '@types/jest': 27.5.2
       '@types/node': 16.11.38
       esbuild: 0.14.42
       jest: 26.6.3
@@ -107,7 +107,7 @@ importers:
       '@actions/core': 1.8.2
       '@octopusdeploy/shared-action-utils': link:../shared-action-utils
     devDependencies:
-      '@types/jest': 27.5.1
+      '@types/jest': 27.5.2
       '@types/node': 16.11.38
       esbuild: 0.14.42
       jest: 26.6.3
@@ -1052,8 +1052,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/27.5.1:
-    resolution: {integrity: sha512-fUy7YRpT+rHXto1YlL+J9rs0uLGyiqVt3ZOTQR+4ROc47yNl8WLdVLgUloBRhOxP1PZvguHl44T3H0wAWxahYQ==}
+  /@types/jest/27.5.2:
+    resolution: {integrity: sha512-mpT8LJJ4CMeeahobofYWIjFo0xonRS/HfxnVEPMPFSQdGUt1uHCnoPT7Zhb+sjDU2wz0oKV0OLUR0WzrHNgfeA==}
     dependencies:
       jest-matcher-utils: 27.5.1
       pretty-format: 27.5.1
