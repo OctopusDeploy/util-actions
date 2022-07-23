@@ -31,7 +31,7 @@ importers:
   packages/add-changeset:
     specifiers:
       '@actions/core': 1.8.2
-      '@changesets/types': 5.0.0
+      '@changesets/types': 5.1.0
       '@changesets/write': 0.1.8
       '@octopusdeploy/shared-action-utils': 0.1.0
       '@types/glob': 7.2.0
@@ -47,7 +47,7 @@ importers:
       typescript: 4.6.4
     dependencies:
       '@actions/core': 1.8.2
-      '@changesets/types': 5.0.0
+      '@changesets/types': 5.1.0
       '@changesets/write': 0.1.8
       '@octopusdeploy/shared-action-utils': link:../shared-action-utils
       glob: 7.2.3
@@ -647,12 +647,16 @@ packages:
 
   /@changesets/types/5.0.0:
     resolution: {integrity: sha512-IT1kBLSbAgTS4WtpU6P5ko054hq12vk4tgeIFRVE7Vnm4a/wgbNvBalgiKP0MjEXbCkZbItiGQHkCGxYWR55sA==}
+    dev: true
+
+  /@changesets/types/5.1.0:
+    resolution: {integrity: sha512-uUByGATZCdaPkaO9JkBsgGDjEvHyY2Sb0e/J23+cwxBi5h0fxpLF/HObggO/Fw8T2nxK6zDfJbPsdQt5RwYFJA==}
 
   /@changesets/write/0.1.8:
     resolution: {integrity: sha512-oIHeFVMuP6jf0TPnKPpaFpvvAf3JBc+s2pmVChbeEgQTBTALoF51Z9kqxQfG4XONZPHZnqkmy564c7qohhhhTQ==}
     dependencies:
       '@babel/runtime': 7.17.9
-      '@changesets/types': 5.0.0
+      '@changesets/types': 5.1.0
       fs-extra: 7.0.1
       human-id: 1.0.2
       prettier: 1.19.1
