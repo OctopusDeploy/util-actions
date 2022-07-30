@@ -10,7 +10,7 @@ importers:
       eslint: 8.17.0
       eslint-config-prettier: 8.5.0
       eslint-plugin-import: 2.26.0
-      eslint-plugin-jest: 26.5.3
+      eslint-plugin-jest: 26.7.0
       eslint-plugin-prefer-arrow: 1.2.3
       eslint-plugin-prettier: 4.0.0
       prettier: 2.6.2
@@ -22,7 +22,7 @@ importers:
       eslint: 8.17.0
       eslint-config-prettier: 8.5.0_eslint@8.17.0
       eslint-plugin-import: 2.26.0_7d7b6d93da94ae3a17a045ae116d4d88
-      eslint-plugin-jest: 26.5.3_cdc57137be49afccf07b6b7468e377e0
+      eslint-plugin-jest: 26.7.0_cdc57137be49afccf07b6b7468e377e0
       eslint-plugin-prefer-arrow: 1.2.3_eslint@8.17.0
       eslint-plugin-prettier: 4.0.0_a088652d234d3f0e6595b5f3073e25de
       prettier: 2.6.2
@@ -2421,8 +2421,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-jest/26.5.3_cdc57137be49afccf07b6b7468e377e0:
-    resolution: {integrity: sha512-sICclUqJQnR1bFRZGLN2jnSVsYOsmPYYnroGCIMVSvTS3y8XR3yjzy1EcTQmk6typ5pRgyIWzbjqxK6cZHEZuQ==}
+  /eslint-plugin-jest/26.7.0_cdc57137be49afccf07b6b7468e377e0:
+    resolution: {integrity: sha512-/YNitdfG3o3cC6juZziAdkk6nfJt01jXVfj4AgaYVLs7bupHzRDL5K+eipdzhDXtQsiqaX1TzfwSuRlEgeln1A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^5.0.0
