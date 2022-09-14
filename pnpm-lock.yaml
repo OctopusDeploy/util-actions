@@ -32,7 +32,7 @@ importers:
     specifiers:
       '@actions/core': 1.8.2
       '@changesets/types': 5.0.0
-      '@changesets/write': 0.1.8
+      '@changesets/write': 0.1.9
       '@octopusdeploy/shared-action-utils': 0.1.0
       '@types/glob': 7.2.0
       '@types/jest': 27.5.2
@@ -48,7 +48,7 @@ importers:
     dependencies:
       '@actions/core': 1.8.2
       '@changesets/types': 5.0.0
-      '@changesets/write': 0.1.8
+      '@changesets/write': 0.1.9
       '@octopusdeploy/shared-action-utils': link:../shared-action-utils
       glob: 7.2.3
     devDependencies:
@@ -648,6 +648,10 @@ packages:
   /@changesets/types/5.0.0:
     resolution: {integrity: sha512-IT1kBLSbAgTS4WtpU6P5ko054hq12vk4tgeIFRVE7Vnm4a/wgbNvBalgiKP0MjEXbCkZbItiGQHkCGxYWR55sA==}
 
+  /@changesets/types/5.1.0:
+    resolution: {integrity: sha512-uUByGATZCdaPkaO9JkBsgGDjEvHyY2Sb0e/J23+cwxBi5h0fxpLF/HObggO/Fw8T2nxK6zDfJbPsdQt5RwYFJA==}
+    dev: false
+
   /@changesets/write/0.1.8:
     resolution: {integrity: sha512-oIHeFVMuP6jf0TPnKPpaFpvvAf3JBc+s2pmVChbeEgQTBTALoF51Z9kqxQfG4XONZPHZnqkmy564c7qohhhhTQ==}
     dependencies:
@@ -656,6 +660,17 @@ packages:
       fs-extra: 7.0.1
       human-id: 1.0.2
       prettier: 1.19.1
+    dev: true
+
+  /@changesets/write/0.1.9:
+    resolution: {integrity: sha512-E90ZrsrfJVOOQaP3Mm5Xd7uDwBAqq3z5paVEavTHKA8wxi7NAL8CmjgbGxSFuiP7ubnJA2BuHlrdE4z86voGOg==}
+    dependencies:
+      '@babel/runtime': 7.17.9
+      '@changesets/types': 5.1.0
+      fs-extra: 7.0.1
+      human-id: 1.0.2
+      prettier: 1.19.1
+    dev: false
 
   /@cnakazawa/watch/1.0.4:
     resolution: {integrity: sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==}
