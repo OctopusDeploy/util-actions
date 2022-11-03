@@ -24,7 +24,7 @@ module.exports = {
     onboarding: false,
     requireConfig: false,
     constraints: {
-        pnpm: "< 8.0.0",
+        pnpm: "7.9.5",
     },
     allowedPostUpgradeCommands: [".*"],
     postUpgradeTasks: {
