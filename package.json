@@ -4,7 +4,7 @@
   "description": "A set of utility actions for use in GitHub actions workflows",
   "main": "index.js",
   "scripts": {
-    "build": "pnpm run build --filter={packages}",
+    "build": "pnpm --filter={packages/*} run build",
     "changeset": "changeset",
     "ci:version": "pnpm run changeset version && pnpm install --frozen-lockfile=false",
     "ci:checkdist": "node ./packages/shared-action-utils/dist/checkActionDistributable.js",
@@ -12,7 +12,12 @@
     "lint:fix": "eslint . --fix",
     "lint": "eslint . --no-error-on-unmatched-pattern",
     "preinstall": "npx only-allow pnpm",
-    "test": "pnpm run test --filter={packages}"
+    "test": "pnpm --filter={packages/*} run test"
+  },
+  "engines": {
+    "node": "^16.0.0",
+    "pnpm": "^7.9.5",
+    "npm": "not-supported.please-use-pnpm-instead"
   },
   "repository": {
     "type": "git",
