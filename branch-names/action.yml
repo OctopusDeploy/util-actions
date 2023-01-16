@@ -6,27 +6,27 @@ runs:
   main: index.js
 inputs:
   gitHubRef:
-    description: "The gitHubRef"
+    description: "This is the input for the github.ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.ref }}
   gitHubBaseRef:
-    description: "The gitHubBaseRef"
+    description: "This is the input for the github.base_ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.base_ref }}
   gitHubHeadRef:
-    description: "The gitHubHeadRef"
+    description: "This is the input for the github.head_ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.head_ref }}
   gitHubEventBaseRef:
-    description: "The gitHubEventBaseRef"
+    description: "This is the input for the github.event.base_ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.event.base_ref }}
   gitHubEventName:
-    description: "The gitHubEventName"
+    description: "This is the input for the github.event_name. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.event_name }}
   gitHubEventRepositoryDefaultBranch:
-    description: "The gitHubEventRepositoryDefaultBranch"
+    description: "This is the input for the github.event.repository.default_branch. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.event.repository.default_branch }}
   tagPrefixToRemove:
@@ -35,18 +35,18 @@ inputs:
     default: ''
 outputs:
   is_default:
-    description: 'true if current branch is default branch'
+    description: 'Returns true if current branch is default branch for the repository'
   is_tag:
-    description: 'true if tag'
+    description: 'Returns true if the gitHub ref is a tag.'
   default_branch:
-    description: 'The default branch'
+    description: 'Returns the default branch for the repository if the github ref is not a tag.'
   current_branch:
-    description: 'The current branch'
+    description: 'Returns the current branch for the repository if the github ref is not a tag.'
   base_ref_branch:
-    description: 'The target branch'
+    description: 'Returns the target branch for the repository if the github ref is a pull request.'
   head_ref_branch:
-    description: 'The source branch'
+    description: 'Returns the source branch for the repository if the github ref is a pull request.'
   ref_branch:
-    description: 'The branch'
+    description: 'Returns the branch that triggered the workflow run if the github ref is not a tag.'
   tag:
-    description: 'The tag'
+    description: 'Returns the tag if it was the trigger of the workflow run.'

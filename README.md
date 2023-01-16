@@ -50,6 +50,43 @@ For example you might to create a set of pre-release npm packages for each commi
     filter: "@octopusdeploy" # Only include any packages with a scope of @octopusdeploy
 ```
 
+### `branch-names`
+
+This action allows you to get a sanitised branch name for use in subsequent GitHub action steps.
+
+#### Inputs
+
+| Name                               | Description                                                                                                                                                 | Required |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| githubRef                          | This is the input for the github.ref. NOTE: this value should not need to be provided, unless you need to override the default.                             | N        |
+| gitHubBaseRef                      | This is the input for the github.base_ref. NOTE: this value should not need to be provided, unless you need to override the default.                        | N        |
+| gitHubHeadRef                      | This is the input for the github.head_ref. NOTE: this value should not need to be provided, unless you need to override the default.                        | N        |
+| gitHubEventBaseRef                 | This is the input for the github.event.base_ref. NOTE: this value should not need to be provided, unless you need to override the default.                  | N        |
+| gitHubEventName                    | This is the input for the github.event_name. NOTE: this value should not need to be provided, unless you need to override the default.                      | N        |
+| gitHubEventRepositoryDefaultBranch | This is the input for the github.event.repository.default_branch. NOTE: this value should not need to be provided, unless you need to override the default. | N        |
+| tagPrefixToRemove                  | The prefix on a tag to remove.                                                                                                                              | N        |
+
+#### Outputs
+
+| Name            | Description                                                                        |
+|-----------------|------------------------------------------------------------------------------------|
+| is_default      | Returns true if current branch is default branch for the repository.               |
+| is_tag          | Returns true if the github ref is a tag.                                           |
+| default_branch  | Returns the default branch for the repository if the github ref is not a tag.      |
+| current_branch  | Returns the current branch for the repository if the github ref is not a tag.      |
+| base_ref_branch | Returns the target branch for the repository if the github ref is a pull request.  |
+| head_ref_branch | Returns the source branch for the repository if the github ref is a pull request.  |
+| ref_branch      | Returns the branch that triggered the workflow run if the github ref is not a tag. |
+| tag             | Returns the tag if it was the trigger of the workflow run.                         |
+
+#### Example
+
+```yml
+- uses: OctopusDeploy/util-actions/branch-names@branch-names.0.1.0
+  with:
+    strip_tag_prefix: v
+```
+
 ### `extract-package-details`
 
 This action allows you to extract the `name` and `version` from within an npm package given the path to the directory of the package.
