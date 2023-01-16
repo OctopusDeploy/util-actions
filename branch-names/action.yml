@@ -1,0 +1,52 @@
+name: Branch Names
+description: Sanitise Branch names for use
+author: Octopus Deploy
+runs:
+  using: node16
+  main: index.js
+inputs:
+  gitHubRef:
+    description: "The gitHubRef"
+    required: false
+    default: ${{ github.ref }}
+  gitHubBaseRef:
+    description: "The gitHubBaseRef"
+    required: false
+    default: ${{ github.base_ref }}
+  gitHubHeadRef:
+    description: "The gitHubHeadRef"
+    required: false
+    default: ${{ github.head_ref }}
+  gitHubEventBaseRef:
+    description: "The gitHubEventBaseRef"
+    required: false
+    default: ${{ github.event.base_ref }}
+  gitHubEventName:
+    description: "The gitHubEventName"
+    required: false
+    default: ${{ github.event_name }}
+  gitHubEventRepositoryDefaultBranch:
+    description: "The gitHubEventRepositoryDefaultBranch"
+    required: false
+    default: ${{ github.event.repository.default_branch }}
+  tagPrefixToRemove:
+    description: "The prefix on a tag to remove"
+    required: false
+    default: ''
+outputs:
+  is_default:
+    description: 'true if current branch is default branch'
+  is_tag:
+    description: 'true if tag'
+  default_branch:
+    description: 'The default branch'
+  current_branch:
+    description: 'The current branch'
+  base_ref_branch:
+    description: 'The target branch'
+  head_ref_branch:
+    description: 'The source branch'
+  ref_branch:
+    description: 'The branch'
+  tag:
+    description: 'The tag'
