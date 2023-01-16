@@ -84,7 +84,7 @@ This action allows you to get a sanitised branch name for use in subsequent GitH
 ```yml
 - uses: OctopusDeploy/util-actions/branch-names@branch-names.0.1.0
   with:
-    strip_tag_prefix: v
+    tagPrefixToRemove: v
 ```
 
 ### `extract-package-details`
