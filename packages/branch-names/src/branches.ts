@@ -1,5 +1,4 @@
 import { GitHubActionsContext } from "@octopusdeploy/shared-action-utils";
-import * as console from "console";
 
 export function getBranchNames(context: GitHubActionsContext) {
     try {
@@ -20,14 +19,6 @@ export function getBranchNames(context: GitHubActionsContext) {
         const githubEventRepositoryDefaultBranch = context.getInput("gitHubEventRepositoryDefaultBranch");
         const tagPrefixToRemove = context.getInput("tagPrefixToRemove");
 
-        console.log(`githubRef: ${githubRef}`);
-        console.log(`githubBaseRef: ${githubBaseRef}`);
-        console.log(`githubHeadRef: ${githubHeadRef}`);
-        console.log(`githubEventBaseRef: ${githubEventBaseRef}`);
-        console.log(`githubEventName: ${githubEventName}`);
-        console.log(`githubEventRepositoryDefaultBranch: ${githubEventRepositoryDefaultBranch}`);
-        console.log(`tagPrefixToRemove: ${tagPrefixToRemove}`);
-
         if (!githubRef.startsWith("refs/tags/")) {
             baseRefBranch = githubBaseRef.replace(/refs\/heads\//, "");
             headRefBranch = githubHeadRef.replace(/refs\/heads\//, "");
@@ -42,10 +33,14 @@ export function getBranchNames(context: GitHubActionsContext) {
             defaultBranch = githubEventRepositoryDefaultBranch;
             isDefault = currentBranch === githubEventRepositoryDefaultBranch;
         } else {
-            const tagHeadRegex = new RegExp(`/refs/heads/${tagPrefixToRemove}/`, "i");
-            const tagRegex = new RegExp(`/refs/tags/${tagPrefixToRemove}/`, "i");
+            const tagHeadRegex = new RegExp(`refs/heads/${tagPrefixToRemove}`, "i");
+            const tagRegex = new RegExp(`refs/tags/${tagPrefixToRemove}`, "i");
             baseRefBranch = githubEventBaseRef.replace(tagHeadRegex, "");
             tag = githubRef.replace(tagRegex, "");
+
+            baseRefBranch = baseRefBranch.replace(/refs\/heads\//, "");
+            tag = tag.replace(/refs\/tags\//, "");
+
             isTag = true;
         }
 
