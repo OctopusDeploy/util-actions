@@ -56,15 +56,15 @@ This action allows you to get a sanitised branch name for use in subsequent GitH
 
 #### Inputs
 
-| Name                               | Description                                                                                                                                                 | Required |
-|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| githubRef                          | This is the input for the github.ref. NOTE: this value should not need to be provided, unless you need to override the default.                             | N        |
-| gitHubBaseRef                      | This is the input for the github.base_ref. NOTE: this value should not need to be provided, unless you need to override the default.                        | N        |
-| gitHubHeadRef                      | This is the input for the github.head_ref. NOTE: this value should not need to be provided, unless you need to override the default.                        | N        |
-| gitHubEventBaseRef                 | This is the input for the github.event.base_ref. NOTE: this value should not need to be provided, unless you need to override the default.                  | N        |
-| gitHubEventName                    | This is the input for the github.event_name. NOTE: this value should not need to be provided, unless you need to override the default.                      | N        |
-| gitHubEventRepositoryDefaultBranch | This is the input for the github.event.repository.default_branch. NOTE: this value should not need to be provided, unless you need to override the default. | N        |
-| tagPrefixToRemove                  | The prefix on a tag to remove.                                                                                                                              | N        |
+| Name                                   | Description                                                                                                                                                 | Required |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| github_ref                             | This is the input for the github.ref. NOTE: this value should not need to be provided, unless you need to override the default.                             | N        |
+| github_base_ref                        | This is the input for the github.base_ref. NOTE: this value should not need to be provided, unless you need to override the default.                        | N        |
+| github_head_ref                        | This is the input for the github.head_ref. NOTE: this value should not need to be provided, unless you need to override the default.                        | N        |
+| github_event_base_ref                  | This is the input for the github.event.base_ref. NOTE: this value should not need to be provided, unless you need to override the default.                  | N        |
+| github_event_name                      | This is the input for the github.event_name. NOTE: this value should not need to be provided, unless you need to override the default.                      | N        |
+| github_event_repository_default_branch | This is the input for the github.event.repository.default_branch. NOTE: this value should not need to be provided, unless you need to override the default. | N        |
+| tag_prefix_to_remove                   | The prefix on a tag to remove.                                                                                                                              | N        |
 
 #### Outputs
 

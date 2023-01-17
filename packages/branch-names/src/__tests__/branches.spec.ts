@@ -3,13 +3,13 @@ import { TestGitHubActionContext } from "@octopusdeploy/shared-action-utils";
 
 test("run with default main branch outputs correctly", () => {
     const context = new TestGitHubActionContext();
-    context.addInput("gitHubRef", "refs/heads/main");
-    context.addInput("gitHubBaseRef", "");
-    context.addInput("gitHubHeadRef", "");
-    context.addInput("gitHubEventBaseRef", "");
-    context.addInput("gitHubEventName", "workflow_dispatch");
-    context.addInput("gitHubEventRepositoryDefaultBranch", "main");
-    context.addInput("tagPrefixToRemove", "");
+    context.addInput("github_ref", "refs/heads/main");
+    context.addInput("github_base_ref", "");
+    context.addInput("github_head_ref", "");
+    context.addInput("github_event_base_ref", "");
+    context.addInput("github_event_name", "workflow_dispatch");
+    context.addInput("github_event_repository_default_branch", "main");
+    context.addInput("tag_prefix_to_remove", "");
     getBranchNames(context);
 
     const outputs = context.getOutputs();
@@ -27,13 +27,13 @@ test("run with default main branch outputs correctly", () => {
 
 test("run with non default dev branch outputs correctly", () => {
     const context = new TestGitHubActionContext();
-    context.addInput("gitHubRef", "refs/heads/dev");
-    context.addInput("gitHubBaseRef", "");
-    context.addInput("gitHubHeadRef", "");
-    context.addInput("gitHubEventBaseRef", "");
-    context.addInput("gitHubEventName", "workflow_dispatch");
-    context.addInput("gitHubEventRepositoryDefaultBranch", "main");
-    context.addInput("tagPrefixToRemove", "");
+    context.addInput("github_ref", "refs/heads/dev");
+    context.addInput("github_base_ref", "");
+    context.addInput("github_head_ref", "");
+    context.addInput("github_event_base_ref", "");
+    context.addInput("github_event_name", "workflow_dispatch");
+    context.addInput("github_event_repository_default_branch", "main");
+    context.addInput("tag_prefix_to_remove", "");
     getBranchNames(context);
 
     const outputs = context.getOutputs();
@@ -51,13 +51,13 @@ test("run with non default dev branch outputs correctly", () => {
 
 test("run with tag inputs and no prefix to remove outputs correctly", () => {
     const context = new TestGitHubActionContext();
-    context.addInput("gitHubRef", "refs/tags/v1");
-    context.addInput("gitHubBaseRef", "");
-    context.addInput("gitHubHeadRef", "");
-    context.addInput("gitHubEventBaseRef", "");
-    context.addInput("gitHubEventName", "workflow_dispatch");
-    context.addInput("gitHubEventRepositoryDefaultBranch", "main");
-    context.addInput("tagPrefixToRemove", "");
+    context.addInput("github_ref", "refs/tags/v1");
+    context.addInput("github_base_ref", "");
+    context.addInput("github_head_ref", "");
+    context.addInput("github_event_base_ref", "");
+    context.addInput("github_event_name", "workflow_dispatch");
+    context.addInput("github_event_repository_default_branch", "main");
+    context.addInput("tag_prefix_to_remove", "");
     getBranchNames(context);
 
     const outputs = context.getOutputs();
@@ -75,13 +75,13 @@ test("run with tag inputs and no prefix to remove outputs correctly", () => {
 
 test("run with tag inputs and prefix to remove that matches outputs correctly", () => {
     const context = new TestGitHubActionContext();
-    context.addInput("gitHubRef", "refs/tags/v1");
-    context.addInput("gitHubBaseRef", "");
-    context.addInput("gitHubHeadRef", "");
-    context.addInput("gitHubEventBaseRef", "");
-    context.addInput("gitHubEventName", "workflow_dispatch");
-    context.addInput("gitHubEventRepositoryDefaultBranch", "main");
-    context.addInput("tagPrefixToRemove", "v");
+    context.addInput("github_ref", "refs/tags/v1");
+    context.addInput("github_base_ref", "");
+    context.addInput("github_head_ref", "");
+    context.addInput("github_event_base_ref", "");
+    context.addInput("github_event_name", "workflow_dispatch");
+    context.addInput("github_event_repository_default_branch", "main");
+    context.addInput("tag_prefix_to_remove", "v");
     getBranchNames(context);
 
     const outputs = context.getOutputs();
@@ -99,13 +99,13 @@ test("run with tag inputs and prefix to remove that matches outputs correctly", 
 
 test("run with tag inputs and prefix to remove that does not match outputs correctly", () => {
     const context = new TestGitHubActionContext();
-    context.addInput("gitHubRef", "refs/tags/a1");
-    context.addInput("gitHubBaseRef", "");
-    context.addInput("gitHubHeadRef", "");
-    context.addInput("gitHubEventBaseRef", "");
-    context.addInput("gitHubEventName", "workflow_dispatch");
-    context.addInput("gitHubEventRepositoryDefaultBranch", "main");
-    context.addInput("tagPrefixToRemove", "v");
+    context.addInput("github_ref", "refs/tags/a1");
+    context.addInput("github_base_ref", "");
+    context.addInput("github_head_ref", "");
+    context.addInput("github_event_base_ref", "");
+    context.addInput("github_event_name", "workflow_dispatch");
+    context.addInput("github_event_repository_default_branch", "main");
+    context.addInput("tag_prefix_to_remove", "v");
     getBranchNames(context);
 
     const outputs = context.getOutputs();
@@ -123,24 +123,48 @@ test("run with tag inputs and prefix to remove that does not match outputs corre
 
 test("run with pull request inputs outputs correctly", () => {
     const context = new TestGitHubActionContext();
-    context.addInput("gitHubRef", "refs/pull/2/merge");
-    context.addInput("gitHubBaseRef", "main");
-    context.addInput("gitHubHeadRef", "test;env;#");
-    context.addInput("gitHubEventBaseRef", "");
-    context.addInput("gitHubEventName", "pull_request");
-    context.addInput("gitHubEventRepositoryDefaultBranch", "main");
-    context.addInput("tagPrefixToRemove", "v");
+    context.addInput("github_ref", "refs/pull/2/merge");
+    context.addInput("github_base_ref", "main");
+    context.addInput("github_head_ref", "test;env;#");
+    context.addInput("github_event_base_ref", "");
+    context.addInput("github_event_name", "pull_request");
+    context.addInput("github_event_repository_default_branch", "main");
+    context.addInput("tag_prefix_to_remove", "v");
     getBranchNames(context);
 
     const outputs = context.getOutputs();
     expect(outputs).toEqual({
         base_ref_branch: "main",
-        current_branch: "test-env-#",
+        current_branch: "testenv",
         default_branch: "main",
-        head_ref_branch: "test-env-#",
+        head_ref_branch: "testenv",
         is_default: false,
         is_tag: false,
         ref_branch: "2/merge",
+        tag: "",
+    });
+});
+
+test("run with bad characters escapes outputs correctly", () => {
+    const context = new TestGitHubActionContext();
+    context.addInput("github_ref", "refs/heads/test;env;#");
+    context.addInput("github_base_ref", "");
+    context.addInput("github_head_ref", "");
+    context.addInput("github_event_base_ref", "");
+    context.addInput("github_event_name", "workflow_dispatch");
+    context.addInput("github_event_repository_default_branch", "main");
+    context.addInput("tag_prefix_to_remove", "");
+    getBranchNames(context);
+
+    const outputs = context.getOutputs();
+    expect(outputs).toEqual({
+        base_ref_branch: "",
+        current_branch: "testenv",
+        default_branch: "main",
+        head_ref_branch: "",
+        is_default: false,
+        is_tag: false,
+        ref_branch: "testenv",
         tag: "",
     });
 });

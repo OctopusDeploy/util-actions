@@ -5,31 +5,31 @@ runs:
   using: node16
   main: index.js
 inputs:
-  gitHubRef:
+  github_ref:
     description: "This is the input for the github.ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.ref }}
-  gitHubBaseRef:
+  github_base_ref:
     description: "This is the input for the github.base_ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.base_ref }}
-  gitHubHeadRef:
+  github_head_ref:
     description: "This is the input for the github.head_ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.head_ref }}
-  gitHubEventBaseRef:
+  github_event_base_ref:
     description: "This is the input for the github.event.base_ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.event.base_ref }}
-  gitHubEventName:
+  github_event_name:
     description: "This is the input for the github.event_name. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.event_name }}
-  gitHubEventRepositoryDefaultBranch:
+  github_event_repository_default_branch:
     description: "This is the input for the github.event.repository.default_branch. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.event.repository.default_branch }}
-  tagPrefixToRemove:
+  tag_prefix_to_remove:
     description: "The prefix on a tag to remove"
     required: false
     default: ''
