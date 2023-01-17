@@ -52,7 +52,7 @@ For example you might to create a set of pre-release npm packages for each commi
 
 ### `branch-names`
 
-This action allows you to get a sanitised branch name for use in subsequent GitHub action steps.
+This action allows you to get a sanitised branch name for use in subsequent GitHub action steps. This is a javascript port of @tj-actions/branch-names.
 
 #### Inputs
 

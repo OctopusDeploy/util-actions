@@ -49,7 +49,9 @@ export function getBranchNames(context: GitHubActionsContext) {
             baseRefBranch = baseRefBranch.replaceAll(characterToReplace, "");
             headRefBranch = headRefBranch.replaceAll(characterToReplace, "");
             refBranch = refBranch.replaceAll(characterToReplace, "");
+            tag = tag.replaceAll(characterToReplace, "");
         }
+
         context.setOutput("is_default", isDefault);
         context.setOutput("is_tag", isTag);
         context.setOutput("default_branch", defaultBranch);
