@@ -6,4 +6,4 @@ renovate-config.js
 find-and-replace-all/index.js
 extract-package-details/index.js
 add-changeset/index.js
-branch-names/index.js
+branch-details/index.js

@@ -1,4 +1,4 @@
-import { getBranchNames } from "../branches";
+import { getBranchDetails } from "../branches";
 import { TestGitHubActionContext } from "@octopusdeploy/shared-action-utils";
 
 test("run with default main branch outputs correctly", () => {
@@ -10,7 +10,7 @@ test("run with default main branch outputs correctly", () => {
     context.addInput("github_event_name", "workflow_dispatch");
     context.addInput("github_event_repository_default_branch", "main");
     context.addInput("tag_prefix_to_remove", "");
-    getBranchNames(context);
+    getBranchDetails(context);
 
     const outputs = context.getOutputs();
     expect(outputs).toEqual({
@@ -34,7 +34,7 @@ test("run with non default dev branch outputs correctly", () => {
     context.addInput("github_event_name", "workflow_dispatch");
     context.addInput("github_event_repository_default_branch", "main");
     context.addInput("tag_prefix_to_remove", "");
-    getBranchNames(context);
+    getBranchDetails(context);
 
     const outputs = context.getOutputs();
     expect(outputs).toEqual({
@@ -58,7 +58,7 @@ test("run with tag inputs and no prefix to remove outputs correctly", () => {
     context.addInput("github_event_name", "workflow_dispatch");
     context.addInput("github_event_repository_default_branch", "main");
     context.addInput("tag_prefix_to_remove", "");
-    getBranchNames(context);
+    getBranchDetails(context);
 
     const outputs = context.getOutputs();
     expect(outputs).toEqual({
@@ -82,7 +82,7 @@ test("run with tag inputs and prefix to remove that matches outputs correctly", 
     context.addInput("github_event_name", "workflow_dispatch");
     context.addInput("github_event_repository_default_branch", "main");
     context.addInput("tag_prefix_to_remove", "v");
-    getBranchNames(context);
+    getBranchDetails(context);
 
     const outputs = context.getOutputs();
     expect(outputs).toEqual({
@@ -106,7 +106,7 @@ test("run with tag inputs and prefix to remove that does not match outputs corre
     context.addInput("github_event_name", "workflow_dispatch");
     context.addInput("github_event_repository_default_branch", "main");
     context.addInput("tag_prefix_to_remove", "v");
-    getBranchNames(context);
+    getBranchDetails(context);
 
     const outputs = context.getOutputs();
     expect(outputs).toEqual({
@@ -130,7 +130,7 @@ test("run with pull request inputs outputs correctly", () => {
     context.addInput("github_event_name", "pull_request");
     context.addInput("github_event_repository_default_branch", "main");
     context.addInput("tag_prefix_to_remove", "v");
-    getBranchNames(context);
+    getBranchDetails(context);
 
     const outputs = context.getOutputs();
     expect(outputs).toEqual({
@@ -154,7 +154,7 @@ test("run with bad characters escapes outputs correctly", () => {
     context.addInput("github_event_name", "workflow_dispatch");
     context.addInput("github_event_repository_default_branch", "main");
     context.addInput("tag_prefix_to_remove", "");
-    getBranchNames(context);
+    getBranchDetails(context);
 
     const outputs = context.getOutputs();
     expect(outputs).toEqual({

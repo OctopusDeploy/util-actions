@@ -50,9 +50,9 @@ For example you might to create a set of pre-release npm packages for each commi
     filter: "@octopusdeploy" # Only include any packages with a scope of @octopusdeploy
 ```
 
-### `branch-names`
+### `branch-details`
 
-This action allows you to get a sanitised branch name for use in subsequent GitHub action steps. This is a javascript port of @tj-actions/branch-names.
+This action allows you to get a sanitised branch details for use in subsequent GitHub action steps. This was originally derived from [tj-actions/branch-names](https://github.com/tj-actions/branch-names)
 
 #### Inputs
 
@@ -82,7 +82,7 @@ This action allows you to get a sanitised branch name for use in subsequent GitH
 #### Example
 
 ```yml
-- uses: OctopusDeploy/util-actions/branch-names@branch-names.0.1.0
+- uses: OctopusDeploy/util-actions/branch-details@branch-details.0.1.0
   with:
     tagPrefixToRemove: v
 ```

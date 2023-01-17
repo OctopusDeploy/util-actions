@@ -1,6 +1,6 @@
 import { GitHubActionsContext } from "@octopusdeploy/shared-action-utils";
 
-export function getBranchNames(context: GitHubActionsContext) {
+export function getBranchDetails(context: GitHubActionsContext) {
     try {
         let isDefault: boolean = false;
         let isTag: boolean = false;

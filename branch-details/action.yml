@@ -1,5 +1,5 @@
-name: Branch Names
-description: Sanitise Branch names for use
+name: Branch Details
+description: Sanitise Branch details for use
 author: Octopus Deploy
 runs:
   using: node16

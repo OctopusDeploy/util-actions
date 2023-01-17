@@ -1,10 +1,10 @@
 {
-  "name": "branch-names",
+  "name": "branch-details",
   "version": "0.1.0",
-  "description": "Get and sanitize git branch names",
+  "description": "Get and sanitize git branch details",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --minify --outdir=../../branch-names",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --minify --outdir=../../branch-details",
     "test": "jest"
   },
   "author": "Octopus Deploy",
