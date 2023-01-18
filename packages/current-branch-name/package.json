@@ -1,10 +1,10 @@
 {
-  "name": "find-and-replace-all",
-  "version": "0.1.0",
-  "description": "Find and replace all instances of a string",
+  "name": "current-branch-name",
+  "version": "0.0.1",
+  "description": "This gets the current branch name or tag sanitised as needed",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --minify --outdir=../../find-and-replace-all",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node16 --minify --outdir=../../current-branch-name",
     "test": "jest"
   },
   "author": "Octopus Deploy",
