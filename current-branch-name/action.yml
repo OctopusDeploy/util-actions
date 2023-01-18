@@ -1,0 +1,30 @@
+name: Current Branch Name
+description: Sanitise branch name for use
+author: Octopus Deploy
+runs:
+  using: node16
+  main: index.js
+inputs:
+  github_ref:
+    description: "This is the input for the github.ref. NOTE: this value should not need to be provided, unless you need to override the default."
+    required: false
+    default: ${{ github.ref }}
+  github_head_ref:
+    description: "This is the input for the github.head_ref. NOTE: this value should not need to be provided, unless you need to override the default."
+    required: false
+    default: ${{ github.head_ref }}
+  github_event_name:
+    description: "This is the input for the github.event_name. NOTE: this value should not need to be provided, unless you need to override the default."
+    required: false
+    default: ${{ github.event_name }}
+  replacement_strings:
+    description: "This is the csv string of strings to replace in the branch name. Default value of /"
+    required: true
+    default: "/"
+  replacement_value:
+    description: "This is the value to replace replacement_strings with. Default value of -."
+    required: true
+    default: "-"
+outputs:
+  branch_name:
+    description: 'Returns the current branch for the repository if the github ref is not a tag.'

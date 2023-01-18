@@ -50,6 +50,35 @@ For example you might to create a set of pre-release npm packages for each commi
     filter: "@octopusdeploy" # Only include any packages with a scope of @octopusdeploy
 ```
 
+### `current-branch-name`
+
+This action allows you to get a sanitised branch details for use in subsequent GitHub action steps.
+
+#### Inputs
+
+| Name                | Description                                                                                                                            | Required |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------|----------|
+| replacement_strings | This is the csv string of strings to replace in the branch name. Default value of "/"                                                  | Y        |
+| replacement_value   | This is the value to replace replacement_strings with. Default value of "-".                                                           | Y        |
+| github_ref          | This is the input for the github.ref. NOTE: this value should not need to be provided, unless you need to override the default.        | N        |
+| github_head_ref     | This is the input for the github.head_ref. NOTE: this value should not need to be provided, unless you need to override the default.   | N        |
+| github_event_name   | This is the input for the github.event_name. NOTE: this value should not need to be provided, unless you need to override the default. | N        |
+
+#### Outputs
+
+| Name        | Description                                                                        |
+|-------------|------------------------------------------------------------------------------------|
+| branch_name | Returns the current branch for the repository if the github ref is not a tag.      |
+
+#### Example
+
+```yml
+- uses: OctopusDeploy/util-actions/branch-details@branch-details.0.1.0
+  with:
+    tagPrefixToRemove: v
+```
+
+
 ### `extract-package-details`
 
 This action allows you to extract the `name` and `version` from within an npm package given the path to the directory of the package.
