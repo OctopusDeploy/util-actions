@@ -63,7 +63,7 @@ importers:
       ts-jest: 26.5.6_ip4jai7pxkumsngma2fb7ud2tm
       typescript: 4.6.4
 
-  packages/current-branch-details:
+  packages/current-branch-name:
     specifiers:
       '@octopusdeploy/shared-action-utils': 0.1.0
       '@types/jest': 27.5.2
