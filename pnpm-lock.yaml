@@ -32,7 +32,7 @@ importers:
     specifiers:
       '@changesets/types': 5.0.0
       '@changesets/write': 0.1.9
-      '@octopusdeploy/shared-action-utils': 0.1.0
+      '@octopusdeploy/shared-action-utils': 0.2.0
       '@types/glob': 7.2.0
       '@types/jest': 27.5.2
       '@types/node': 16.18.3
@@ -65,7 +65,7 @@ importers:
 
   packages/current-branch-name:
     specifiers:
-      '@octopusdeploy/shared-action-utils': 0.1.0
+      '@octopusdeploy/shared-action-utils': 0.2.0
       '@types/jest': 27.5.2
       '@types/node': 16.18.3
       esbuild: 0.14.54
@@ -92,7 +92,7 @@ importers:
 
   packages/extract-package-details:
     specifiers:
-      '@octopusdeploy/shared-action-utils': 0.1.0
+      '@octopusdeploy/shared-action-utils': 0.2.0
       '@types/jest': 27.5.2
       '@types/node': 16.18.3
       esbuild: 0.14.54
@@ -119,7 +119,7 @@ importers:
 
   packages/find-and-replace-all:
     specifiers:
-      '@octopusdeploy/shared-action-utils': 0.1.0
+      '@octopusdeploy/shared-action-utils': 0.2.0
       '@types/jest': 27.5.2
       '@types/node': 16.18.3
       esbuild: 0.14.54
