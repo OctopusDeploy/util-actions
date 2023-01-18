@@ -75,7 +75,7 @@ This action allows you to get a sanitised branch details for use in subsequent G
 ```yml
 - uses: OctopusDeploy/util-actions/current-branch-name@current-branch-name.0.1.0
   with:
-    replacement_strings: '/'
+    additional_strings_to_replace: '/'
     replacement_value: '-'
 ```
 
