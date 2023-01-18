@@ -7,7 +7,7 @@ export function currentBranchName(context: GitHubActionsContext) {
         const githubRef = context.getInput("github_ref");
         const githubHeadRef = context.getInput("github_head_ref");
         const githubEventName = context.getInput("github_event_name");
-        const replacementStrings = context.getInput("replacement_strings").split(",");
+        const additionalStringsToReplace = context.getMultilineInput("additional_strings_to_replace");
         const replacementValue = context.getInput("replacement_value");
 
         if (githubEventName === "pull_request") {
@@ -22,7 +22,7 @@ export function currentBranchName(context: GitHubActionsContext) {
 
         refToUse = refToUse.replace(/refs\/heads\//, "").replace(/refs\/tags\//, "");
 
-        for (const characterToReplace of replacementStrings) {
+        for (const characterToReplace of additionalStringsToReplace) {
             refToUse = refToUse.replaceAll(characterToReplace, replacementValue);
         }
 

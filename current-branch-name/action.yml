@@ -1,29 +1,29 @@
 name: Current Branch Name
-description: Sanitise branch name for use
+description: Gets and sanitizes the current branch name or tag for the workflow.
 author: Octopus Deploy
 runs:
   using: node16
   main: index.js
 inputs:
   github_ref:
-    description: "This is the input for the github.ref. NOTE: this value should not need to be provided, unless you need to override the default."
+    description: "The input for the github.ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.ref }}
   github_head_ref:
-    description: "This is the input for the github.head_ref. NOTE: this value should not need to be provided, unless you need to override the default."
+    description: "The input for the github.head_ref. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.head_ref }}
   github_event_name:
-    description: "This is the input for the github.event_name. NOTE: this value should not need to be provided, unless you need to override the default."
+    description: "The input for the github.event_name. NOTE: this value should not need to be provided, unless you need to override the default."
     required: false
     default: ${{ github.event_name }}
-  replacement_strings:
-    description: "This is the csv string of strings to replace in the branch name. Default value of /"
-    required: true
+  additional_strings_to_replace:
+    description: "A multiline string of values to replace in the branch name. Default value of /"
+    required: false
     default: "/"
   replacement_value:
-    description: "This is the value to replace replacement_strings with. Default value of -."
-    required: true
+    description: "The value to replace replacement_strings with. Default value of -."
+    required: false
     default: "-"
 outputs:
   branch_name:

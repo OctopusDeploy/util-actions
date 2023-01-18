@@ -6,7 +6,7 @@ test("run with default main branch outputs correctly", () => {
     context.addInput("github_ref", "refs/heads/main");
     context.addInput("github_head_ref", "");
     context.addInput("github_event_name", "workflow_dispatch");
-    context.addInput("replacement_strings", "/");
+    context.addInput("additional_strings_to_replace", "/");
     context.addInput("replacement_value", "-");
     currentBranchName(context);
 
@@ -21,7 +21,7 @@ test("run with non default dev branch outputs correctly", () => {
     context.addInput("github_ref", "refs/heads/dev");
     context.addInput("github_head_ref", "");
     context.addInput("github_event_name", "workflow_dispatch");
-    context.addInput("replacement_strings", "/");
+    context.addInput("additional_strings_to_replace", "/");
     context.addInput("replacement_value", "-");
     currentBranchName(context);
 
@@ -36,7 +36,7 @@ test("run with tag inputs outputs correctly", () => {
     context.addInput("github_ref", "refs/tags/v1");
     context.addInput("github_head_ref", "");
     context.addInput("github_event_name", "workflow_dispatch");
-    context.addInput("replacement_strings", "/");
+    context.addInput("additional_strings_to_replace", "/");
     context.addInput("replacement_value", "-");
     currentBranchName(context);
 
@@ -51,7 +51,7 @@ test("run with pull request inputs outputs correctly", () => {
     context.addInput("github_ref", "refs/pull/2/merge");
     context.addInput("github_head_ref", "test;env;#");
     context.addInput("github_event_name", "pull_request");
-    context.addInput("replacement_strings", "/");
+    context.addInput("additional_strings_to_replace", "/");
     context.addInput("replacement_value", "-");
     currentBranchName(context);
 
@@ -66,7 +66,7 @@ test("run with bad characters escapes outputs correctly", () => {
     context.addInput("github_ref", "refs/heads/test;env;#");
     context.addInput("github_head_ref", "");
     context.addInput("github_event_name", "workflow_dispatch");
-    context.addInput("replacement_strings", "/");
+    context.addInput("additional_strings_to_replace", "/");
     context.addInput("replacement_value", "-");
     currentBranchName(context);
 
@@ -81,7 +81,7 @@ test("run with branch in git folder", () => {
     context.addInput("github_ref", "refs/heads/test-folder/my-branch");
     context.addInput("github_head_ref", "");
     context.addInput("github_event_name", "workflow_dispatch");
-    context.addInput("replacement_strings", "/");
+    context.addInput("additional_strings_to_replace", "/");
     context.addInput("replacement_value", "-");
     currentBranchName(context);
 
@@ -96,7 +96,7 @@ test("multiple replacement characters returns correct branch_name", () => {
     context.addInput("github_ref", "refs/heads/test-folder/test-folder\\my-branch");
     context.addInput("github_head_ref", "");
     context.addInput("github_event_name", "workflow_dispatch");
-    context.addInput("replacement_strings", "/,\\");
+    context.addMultilineInput("additional_strings_to_replace", ["\\", "/"]);
     context.addInput("replacement_value", "-");
     currentBranchName(context);
 
