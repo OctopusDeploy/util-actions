@@ -73,7 +73,7 @@ This action allows you to get a sanitised branch details for use in subsequent G
 #### Example
 
 ```yml
-- uses: OctopusDeploy/util-actions/branch-details@branch-details.0.1.0
+- uses: OctopusDeploy/util-actions/current-branch-name@current-branch-name.0.1.0
   with:
     tagPrefixToRemove: v
 ```
