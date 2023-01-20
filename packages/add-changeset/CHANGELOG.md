@@ -1,4 +1,4 @@
-# add-changeset
+# @octopusdeploy/add-changeset
 
 ## 0.2.0
 

@@ -1,5 +1,5 @@
 {
-  "name": "find-and-replace-all",
+  "name": "@octopusdeploy/find-and-replace-all",
   "version": "0.2.0",
   "description": "Find and replace all instances of a string",
   "main": "index.js",

@@ -1,4 +1,4 @@
-# extract-package-details
+# @octopusdeploy/extract-package-details
 
 ## 0.2.0
 

@@ -1,5 +1,5 @@
 {
-  "name": "add-changeset",
+  "name": "@octopusdeploy/add-changeset",
   "version": "0.2.0",
   "description": "Adds a changeset containing one or more projects",
   "main": "index.js",
