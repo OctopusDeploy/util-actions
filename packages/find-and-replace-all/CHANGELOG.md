@@ -1,4 +1,4 @@
-# find-and-replace-all
+# @octopusdeploy/find-and-replace-all
 
 ## 0.2.0
 

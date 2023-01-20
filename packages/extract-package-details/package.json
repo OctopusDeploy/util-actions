@@ -1,5 +1,5 @@
 {
-  "name": "extract-package-details",
+  "name": "@octopusdeploy/extract-package-details",
   "version": "0.2.0",
   "description": "Extracts details from a package.json file",
   "main": "index.js",

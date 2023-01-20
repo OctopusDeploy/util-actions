@@ -1,5 +1,5 @@
 {
-  "name": "current-branch-name",
+  "name": "@octopusdepoy/current-branch-name",
   "version": "0.1.0",
   "description": "This gets the current branch name or tag sanitised as needed",
   "main": "index.js",

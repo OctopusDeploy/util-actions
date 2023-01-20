@@ -1,4 +1,4 @@
-# current-branch-name
+# @octopusdeploy/current-branch-name
 
 ## 0.1.0
 
