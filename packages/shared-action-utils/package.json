@@ -14,7 +14,7 @@
     "glob": "7.2.3"
   },
   "devDependencies": {
-    "@types/node": "16.18.80",
+    "@types/node": "16.18.82",
     "@types/glob": "7.2.0"
   }
 }
