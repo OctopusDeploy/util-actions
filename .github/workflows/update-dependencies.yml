@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.4.2
+        uses: actions/checkout@v2.7.0
 
       # Note: Renovate runs within it's own docker container and doesn't 
       # know really anything about which version of tooling are in use e.g. pnpm
