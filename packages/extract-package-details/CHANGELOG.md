@@ -1,5 +1,11 @@
 # @octopusdeploy/extract-package-details
 
+## 0.2.1
+
+### Patch Changes
+
+-   46607ba: Updating package names to include @octopusdeploy/ prefix for security reasons.
+
 ## 0.2.0
 
 ### Minor Changes
