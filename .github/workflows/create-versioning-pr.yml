@@ -27,12 +27,12 @@ jobs:
 
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 8.6.5
+          version: 7.9.5
 
       - name: setup node
         uses: actions/setup-node@v2
         with:
-          node-version: "20.*"
+          node-version: "16.*"
           cache: "pnpm"
 
       # Why do we explicitly do pnpm install here and not use "run_install: true" above in the pnpm setup?
