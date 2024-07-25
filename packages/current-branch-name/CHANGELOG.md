@@ -1,5 +1,11 @@
 # @octopusdeploy/current-branch-name
 
+## 0.1.1
+
+### Patch Changes
+
+-   46607ba: Updating package names to include @octopusdeploy/ prefix for security reasons.
+
 ## 0.1.0
 
 ### Minor Changes
