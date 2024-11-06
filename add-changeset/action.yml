@@ -2,7 +2,7 @@ name: Add changeset
 description: Adds a changeset containing one or more projects
 author: Octopus Deploy
 runs:
-  using: node16
+  using: node20
   main: index.js
 inputs:
   type:
