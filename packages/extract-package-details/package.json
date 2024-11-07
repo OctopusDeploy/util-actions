@@ -1,6 +1,6 @@
 {
   "name": "@octopusdeploy/extract-package-details",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Extracts details from a package.json file",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "Octopus Deploy",
   "license": "Apache-2.0",
   "dependencies": {
-    "@octopusdeploy/shared-action-utils": "0.2.0"
+    "@octopusdeploy/shared-action-utils": "0.3.0"
   },
   "devDependencies": {
     "@types/jest": "27.5.2",

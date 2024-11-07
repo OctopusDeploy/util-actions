@@ -1,6 +1,6 @@
 {
   "name": "@octopusdeploy/add-changeset",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Adds a changeset containing one or more projects",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "dependencies": {
     "@changesets/types": "5.0.0",
     "@changesets/write": "0.1.9",
-    "@octopusdeploy/shared-action-utils": "0.2.0",
+    "@octopusdeploy/shared-action-utils": "0.3.0",
     "glob": "7.2.3"
   },
   "devDependencies": {
