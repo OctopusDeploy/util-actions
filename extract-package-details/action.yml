@@ -2,7 +2,7 @@ name: Extract Package Details
 description: Extract details from package.json
 author: Octopus Deploy
 runs:
-  using: node16
+  using: node20
   main: index.js
 inputs:
   path:

@@ -24,12 +24,12 @@ module.exports = {
     onboarding: false,
     requireConfig: false,
     constraints: {
-        pnpm: "7.9.5",
+        pnpm: "8.15.9",
     },
     allowedPostUpgradeCommands: [".*"],
     postUpgradeTasks: {
-        commands: ["npm i -g pnpm@7.9.5 && pnpm install && pnpm build"],
+        commands: ["npm i -g pnpm@8.15.9 && pnpm install && pnpm build"],
         fileFilters: ["**/index.js"],
-        executionMode: "update"
-    }
+        executionMode: "update",
+    },
 };

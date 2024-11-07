@@ -2,7 +2,7 @@ name: Current Branch Name
 description: Gets and sanitizes the current branch name or tag for the workflow.
 author: Octopus Deploy
 runs:
-  using: node16
+  using: node20
   main: index.js
 inputs:
   github_ref:
@@ -27,4 +27,4 @@ inputs:
     default: "-"
 outputs:
   branch_name:
-    description: 'Returns the current branch for the repository if the github ref is not a tag.'
+    description: "Returns the current branch for the repository if the github ref is not a tag."

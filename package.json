@@ -15,8 +15,8 @@
     "test": "pnpm --filter={packages/*} run test"
   },
   "engines": {
-    "node": "^16.0.0",
-    "pnpm": "^7.9.5",
+    "node": "^20.0.0",
+    "pnpm": "^8.15.9",
     "npm": "not-supported.please-use-pnpm-instead"
   },
   "repository": {
