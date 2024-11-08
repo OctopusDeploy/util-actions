@@ -1,5 +1,11 @@
 # @octopusdeploy/shared-action-utils
 
+## 0.3.0
+
+### Minor Changes
+
+-   d53723c: Update to node 20
+
 ## 0.2.0
 
 ### Minor Changes

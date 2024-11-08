@@ -58,7 +58,7 @@ importers:
         specifier: 0.1.9
         version: 0.1.9
       '@octopusdeploy/shared-action-utils':
-        specifier: 0.2.0
+        specifier: 0.3.0
         version: link:../shared-action-utils
       glob:
         specifier: 7.2.3
@@ -101,7 +101,7 @@ importers:
   packages/current-branch-name:
     dependencies:
       '@octopusdeploy/shared-action-utils':
-        specifier: 0.2.0
+        specifier: 0.3.0
         version: link:../shared-action-utils
     devDependencies:
       '@types/jest':
@@ -138,7 +138,7 @@ importers:
   packages/extract-package-details:
     dependencies:
       '@octopusdeploy/shared-action-utils':
-        specifier: 0.2.0
+        specifier: 0.3.0
         version: link:../shared-action-utils
     devDependencies:
       '@types/jest':
@@ -175,7 +175,7 @@ importers:
   packages/find-and-replace-all:
     dependencies:
       '@octopusdeploy/shared-action-utils':
-        specifier: 0.2.0
+        specifier: 0.3.0
         version: link:../shared-action-utils
     devDependencies:
       '@types/jest':
