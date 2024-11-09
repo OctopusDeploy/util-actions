@@ -84,7 +84,7 @@ jobs:
       - run: pnpm build
 
       - name: Publish
-        uses: changesets/action@v1.2.2
+        uses: changesets/action@v1.4.9
         with:
           publish: pnpm run ci:publish
         env:
