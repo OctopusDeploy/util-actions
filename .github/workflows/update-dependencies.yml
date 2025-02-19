@@ -5,12 +5,11 @@ on:
 
   workflow_dispatch:
     inputs:
-      dryrunmode:
-        type: choice
-        description: Dry Run Mode
-        options:
-          - "null"
-          - "full"
+      dryRun:
+        type: boolean
+        required: false
+        default: false
+        description: Dry run (don't create PRs)
 jobs:
   renovate:
     runs-on: ubuntu-latest
@@ -25,4 +24,4 @@ jobs:
           token: ${{ secrets.RENOVATE_GITHUB_TOKEN }}
         env:
           LOG_LEVEL: debug
-          RENOVATE_DRY_RUN: ${{ github.event.inputs.dryrunmode != 'null' && github.event.inputs.dryrunmode || '' }}
+          RENOVATE_DRY_RUN: ${{ inputs.dryRun && 'full' || null }}
