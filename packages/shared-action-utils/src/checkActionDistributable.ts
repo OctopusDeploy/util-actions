@@ -7,7 +7,7 @@ async function checkActionDistributable(): Promise<void> {
     let hasUncommittedChanges = false;
 
     for (const action of actions) {
-        const { exitCode, stderr, stdout } = await getExecOutput("git", ["diff", "--name-only", action.directoryPath], {
+        const { exitCode, stderr, stdout } = await getExecOutput("git", ["diff", "--name-only", "--ignore-cr-at-eol", action.directoryPath], {
             ignoreReturnCode: true,
             silent: true,
         });
