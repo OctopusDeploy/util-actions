@@ -44,7 +44,7 @@ jobs:
       - run: pnpm build
 
       - name: Create Release Pull Request
-        uses: changesets/action@v1.4.9
+        uses: changesets/action@v1.4.10
         with:
           version: pnpm run ci:version
         env:
