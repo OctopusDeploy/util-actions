@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@types/jest": "27.5.2",
-    "@types/node": "20.17.24",
+    "@types/node": "20.17.25",
     "esbuild": "0.14.54",
     "eslint": "8.57.1",
     "jest": "26.6.3",
