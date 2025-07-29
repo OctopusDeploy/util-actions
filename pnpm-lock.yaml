@@ -10,7 +10,7 @@ overrides:
   semver@>=7.0.0 <7.5.2: 7.7.2
   ws@>=7.0.0 <7.5.10: 8.18.3
   braces@<3.0.3: 3.0.3
-  form-data: 3.0.4
+  form-data@<3.0.4: ^3.0.4
 
 importers:
 
