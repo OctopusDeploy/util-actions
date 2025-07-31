@@ -1,6 +1,6 @@
 {
   "name": "@octopusdeploy/find-and-replace-all",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Find and replace all instances of a string",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "Octopus Deploy",
   "license": "Apache-2.0",
   "dependencies": {
-    "@octopusdeploy/shared-action-utils": "0.3.0"
+    "@octopusdeploy/shared-action-utils": "0.3.1"
   },
   "devDependencies": {
     "@types/jest": "27.5.2",
