@@ -2,7 +2,7 @@ name: Current Branch Name
 description: Gets and sanitizes the current branch name or tag for the workflow.
 author: Octopus Deploy
 runs:
-  using: node20
+  using: node24
   main: index.js
 inputs:
   github_ref:

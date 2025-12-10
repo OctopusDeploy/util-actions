@@ -2,7 +2,7 @@ name: Find and replace all
 description: Find and replace all instances of a string
 author: Octopus Deploy
 runs:
-  using: node20
+  using: node24
   main: index.js
 inputs:
   source:
