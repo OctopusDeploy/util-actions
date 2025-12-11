@@ -84,29 +84,7 @@ export default [
             // should consider enabling
             "no-case-declarations": "off",
             "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
-            "quotes": [
-                "error",
-                "double",
-                {
-                    avoidEscape: true,
-                    allowTemplateLiterals: true,
-                },
-            ],
             "prettier/prettier": "error",
         },
-    },
-    {
-        files: ["__tests__/**/*.ts"],
-
-        languageOptions: {
-            globals: {
-                ...globals.jest,
-                ...globals.node,
-            },
-        },
-
-        rules: {
-            "filenames/match-regex": 0,
-        },
-    },
+    }
 ];
