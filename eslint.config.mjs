@@ -2,7 +2,8 @@ import jest from "eslint-plugin-jest";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import globals from "globals";
 import tsParser from "@typescript-eslint/parser";
-import github from "eslint-plugin-github";
+import prettier from "eslint-plugin-prettier";
+import prettierConfig from "eslint-config-prettier";
 
 export default [
     {
@@ -12,7 +13,12 @@ export default [
             "**/node_modules/",
             "**/jest.config.js",
             "**/out/",
+            "**/coverage/",
             "eslint.config.mjs",
+            "esbuild.js",
+            "esbuild.mjs",
+            "rollup.config.js",
+            "step-package.config.js",
             "add-changeset/",
             "current-branch-name/",
             "extract-package-details/",
@@ -20,12 +26,13 @@ export default [
             "renovate-config.js"
         ],
     },
-    github.getFlatConfigs().recommended,
+    prettierConfig,
     {
         files: ["**/*.ts"],
         plugins: {
             jest,
             "@typescript-eslint": typescriptEslint,
+            prettier,
         },
 
         languageOptions: {
@@ -45,49 +52,48 @@ export default [
         },
 
         rules: {
-            "@typescript-eslint/array-type": "error",
-            "@typescript-eslint/await-thenable": "error",
-            "@typescript-eslint/ban-ts-comment": "error",
-            "@typescript-eslint/consistent-type-assertions": "error",
-
-            "@typescript-eslint/explicit-function-return-type": ["error", {
-                allowExpressions: true,
-            }],
-
-            "@typescript-eslint/explicit-member-accessibility": ["error", {
-                accessibility: "no-public",
-            }],
-
-            "@typescript-eslint/no-array-constructor": "error",
-            "@typescript-eslint/no-empty-interface": "error",
-            "@typescript-eslint/no-explicit-any": "error",
-            "@typescript-eslint/no-extraneous-class": "error",
-            "@typescript-eslint/no-for-in-array": "error",
-            "@typescript-eslint/no-inferrable-types": "error",
-            "@typescript-eslint/no-misused-new": "error",
-            "@typescript-eslint/no-namespace": "error",
+            "@typescript-eslint/array-type": "off",
+            "@typescript-eslint/consistent-type-assertions": ["error", { assertionStyle: "never" }],
+            "@typescript-eslint/explicit-function-return-type": "off",
+            "@typescript-eslint/no-inferrable-types": "off",
+            "@typescript-eslint/no-unused-vars": "off",
+            "@typescript-eslint/no-var-requires": "off",
             "@typescript-eslint/no-non-null-assertion": "error",
-            "@typescript-eslint/no-require-imports": "error",
-            "@typescript-eslint/no-unnecessary-qualifier": "error",
-            "@typescript-eslint/no-unnecessary-type-assertion": "error",
-            "@typescript-eslint/no-unused-vars": "error",
-            "@typescript-eslint/no-useless-constructor": "error",
-            "@typescript-eslint/prefer-for-of": "error",
-            "@typescript-eslint/prefer-function-type": "error",
-            "@typescript-eslint/prefer-includes": "error",
-            "@typescript-eslint/prefer-string-starts-ends-with": "error",
-            "@typescript-eslint/promise-function-async": "error",
-            "@typescript-eslint/require-array-sort-compare": "error",
-            "@typescript-eslint/restrict-plus-operands": "error",
-            "@typescript-eslint/unbound-method": "error",
-            camelcase: "error",
-            "eslint-comments/no-use": "error",
-            "i18n-text/no-en": "off",
-            "import/no-namespace": "error",
-            "prefer-const": "error",
-            "no-var": "error",
-            "no-unused-vars": "off",
-            "@typescript-eslint/no-var-requires": "error",
+            "@typescript-eslint/adjacent-overload-signatures": "error",
+            "@typescript-eslint/init-declarations": ["error"],
+            "init-declarations": "off",
+            "@typescript-eslint/no-dupe-class-members": ["error"],
+            "no-dupe-class-members": "off",
+            "no-eq-null": ["error"],
+            "no-undef": "off",
+            "no-extra-boolean-cast": "off",
+            "no-multi-spaces": "error",
+            "no-irregular-whitespace": "off",
+            "no-prototype-builtins": "off",
+            "prefer-rest-params": "off",
+            "prefer-spread": "off",
+            "no-case-declarations": "off",
+            "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
+            "quotes": [
+                "error",
+                "double",
+                {
+                    avoidEscape: true,
+                    allowTemplateLiterals: true,
+                },
+            ],
+            "prettier/prettier": "error",
+
+            "no-console": "off",
+            "camelcase": "off",
+            "github/filenames-match-regex": "off",
+            "github/no-then": "off",
+            "import/no-namespace": "off",
+            "import/no-unresolved": "off",
+            "import/no-dynamic-require": "off",
+            "object-shorthand": "off",
+            "no-shadow": "off",
+            "prefer-template": "off",
         },
     },
     {
