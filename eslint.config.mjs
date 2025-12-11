@@ -1,13 +1,24 @@
 import jest from "eslint-plugin-jest";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import stylistic from "@stylistic/eslint-plugin";
 import globals from "globals";
 import tsParser from "@typescript-eslint/parser";
 import github from "eslint-plugin-github";
 
 export default [
     {
-        ignores: ["**/dist/", "**/lib/", "**/node_modules/", "**/jest.config.js", "**/out/", "eslint.config.mjs"],
+        ignores: [
+            "**/dist/",
+            "**/lib/",
+            "**/node_modules/",
+            "**/jest.config.js",
+            "**/out/",
+            "eslint.config.mjs",
+            "add-changeset/",
+            "current-branch-name/",
+            "extract-package-details/",
+            "find-and-replace-all/",
+            "renovate-config.js"
+        ],
     },
     github.getFlatConfigs().recommended,
     {
@@ -15,7 +26,6 @@ export default [
         plugins: {
             jest,
             "@typescript-eslint": typescriptEslint,
-            "@stylistic": stylistic,
         },
 
         languageOptions: {
@@ -77,9 +87,6 @@ export default [
             "prefer-const": "error",
             "no-var": "error",
             "no-unused-vars": "off",
-            "@stylistic/function-call-spacing": ["error", "never"],
-            "@stylistic/semi": ["error", "never"],
-            "@stylistic/type-annotation-spacing": "error",
             "@typescript-eslint/no-var-requires": "error",
         },
     },
