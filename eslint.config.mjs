@@ -83,17 +83,6 @@ export default [
                 },
             ],
             "prettier/prettier": "error",
-
-            "no-console": "off",
-            "camelcase": "off",
-            "github/filenames-match-regex": "off",
-            "github/no-then": "off",
-            "import/no-namespace": "off",
-            "import/no-unresolved": "off",
-            "import/no-dynamic-require": "off",
-            "object-shorthand": "off",
-            "no-shadow": "off",
-            "prefer-template": "off",
         },
     },
     {
