@@ -21,7 +21,7 @@ jobs:
     if: ${{ !startsWith(github.event.commits[0].message, 'Version Packages') }}
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -30,9 +30,9 @@ jobs:
           version: 8.15.9
 
       - name: setup node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20.19.5"
+          node-version: "24.11.1"
           cache: "pnpm"
 
       # Why do we explicitly do pnpm install here and not use "run_install: true" above in the pnpm setup?
