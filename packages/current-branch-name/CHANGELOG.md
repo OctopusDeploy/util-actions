@@ -1,5 +1,16 @@
 # @octopusdeploy/current-branch-name
 
+## 0.3.0
+
+### Minor Changes
+
+-   1edc8ab: Update to node 24.11.1
+
+### Patch Changes
+
+-   Updated dependencies [1edc8ab]
+    -   @octopusdeploy/shared-action-utils@0.4.0
+
 ## 0.2.1
 
 ### Patch Changes
