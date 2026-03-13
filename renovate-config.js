@@ -23,6 +23,7 @@ module.exports = {
     timezone: "Australia/Brisbane",
     onboarding: false,
     requireConfig: false,
+    allowShellExecutorForPostUpgradeCommands: true,
     constraints: {
         pnpm: "8.15.9",
     },
