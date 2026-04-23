@@ -34,7 +34,7 @@ module.exports = {
     },
     allowedPostUpgradeCommands: [".*"],
     postUpgradeTasks: {
-        commands: ["npm i -g pnpm@8.15.9 && pnpm install && pnpm build"],
+        commands: ["npm i -g pnpm@8.15.9", "pnpm install", "pnpm build"],
         fileFilters: ["**/index.js"],
         executionMode: "update",
     },
