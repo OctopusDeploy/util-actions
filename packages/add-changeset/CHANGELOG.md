@@ -1,5 +1,11 @@
 # @octopusdeploy/add-changeset
 
+## 0.4.1
+
+### Patch Changes
+
+-   d1f43aa: Resolved minimatch security alerts
+
 ## 0.4.0
 
 ### Minor Changes
