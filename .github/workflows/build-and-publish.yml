@@ -22,14 +22,14 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v4.4.0
         with:
           version: 8.15.9
 
       - name: setup node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.5.0
         with:
           node-version: "24.11.1"
           cache: "pnpm"
@@ -61,16 +61,16 @@ jobs:
     if: ${{ startsWith(github.event.commits[0].message, 'Version Packages') }}
     steps:
       - name: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.1.0
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v4.4.0
         with:
           version: 8.15.9
 
       - name: setup node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.5.0
         with:
           node-version: "24.11.1"
           cache: "pnpm"
