@@ -1,5 +1,7 @@
 # util-actions
 
+> **⚠️ Archived:** This repository has been archived and is no longer supported. It is not maintained and will not receive updates, bug fixes, or security patches.
+
 A set of utility actions for use in GitHub action workflows.
 
 ## Usage
